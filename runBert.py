@@ -54,7 +54,7 @@ parser.add_argument("--log_path",
                     type=str,
                     help="The path to save log.")
 parser.add_argument("--model_path",
-                    default=""/home/yutao_zhu/BertModel/"",
+                    default="/home/yutao_zhu/BertModel/",
                     type=str,
                     help="The path to save log.")
 args = parser.parse_args()
