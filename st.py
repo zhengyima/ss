@@ -72,7 +72,7 @@ def main():
 
 
 	
-	os.system(f"cd /cache/ss/Pairwise && python runBert.py")
+	os.system(f"cd /cache/ss/Pairwise && python runBert.py --model_path /cache/mymodel")
 	
 	
 	mox.file.copy_parallel('/cache/output', s3_output_path)
