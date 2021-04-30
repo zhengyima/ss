@@ -39,7 +39,10 @@ def extract_data():
 	os.makedirs('/cache/mymodel')
 	mox.file.copy_parallel(s3_model_path, '/cache/mymodel')	
 
-	
+	os.makedirs('/cache/output/logs')
+
+	os.makedirs("/cache/output/models")
+
 
 	os.makedirs('/cache/output')
 
@@ -72,7 +75,8 @@ def main():
 
 
 	
-	os.system(f"cd /cache/ss/Pairwise && python runBert.py --model_path /cache/mymodel --per_gpu_batch_size 64")
+	os.system(f"cd /cache/ss/Pairwise && python runBert.py --model_path /cache/mymodel \
+		--per_gpu_batch_size 64 --log_path /cache/output/logs --save_path /cache/output/models")
 	
 	
 	mox.file.copy_parallel('/cache/output', s3_output_path)
