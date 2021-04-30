@@ -57,7 +57,7 @@ parser.add_argument("--model_path",
                     type=str,
                     help="The path to save log.")
 parser.add_argument("--pretrain_model_path",
-                    default="",
+                    default="BertContrastive.sent_del.aol",
                     type=str,
                     help="The path to save log.")
 args = parser.parse_args()
