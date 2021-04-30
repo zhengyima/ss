@@ -76,7 +76,7 @@ def main():
 
 	
 	os.system(f"cd /cache/ss/Pairwise && python runBert.py --model_path /cache/mymodel \
-		--per_gpu_batch_size 64 --log_path /cache/output/logs --save_path /cache/output/models")
+		--per_gpu_batch_size 64 --log_path /cache/output/logs --save_path /cache/output/models --epochs 3")
 	
 	
 	mox.file.copy_parallel('/cache/output', s3_output_path)
