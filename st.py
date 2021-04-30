@@ -5,8 +5,8 @@ import argparse
 import moxing as mox
 import sys
 
-# s3_rootdir = "s3://obs-app-2020042019121301221/SEaaKM/m50017495/"
-s3_rootdir = "s3://bucket-852/m50017495/"
+s3_rootdir = "s3://obs-app-2020042019121301221/SEaaKM/m50017495/"
+# s3_rootdir = "s3://bucket-852/m50017495/"
 
 mox.file.shift('os', 'mox')
 os.makedirs("/cache/ss")
