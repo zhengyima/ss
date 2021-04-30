@@ -226,5 +226,6 @@ if __name__ == '__main__':
     set_seed()
     if args.is_training:
         train_model()
+        test_model()
     else:
         test_model()
