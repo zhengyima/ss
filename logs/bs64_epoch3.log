@@ -1,0 +1,27 @@
+Epoch  1 / 3
+
+libibverbs: Warning: couldn't open config directory '/etc/libibverbs.d'.
+
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+
+Best Result: MAP: 0.5319 MRR: 0.5410 NDCG@1: 0.3788 NDCG@3: 0.5310 NDCG@5: 0.5672 NDCG@10: 0.5974
+
+Best Result: MAP: 0.5443 MRR: 0.5534 NDCG@1: 0.3927 NDCG@3: 0.5451 NDCG@5: 0.5786 NDCG@10: 0.6099
+
+Best Result: MAP: 0.5532 MRR: 0.5620 NDCG@1: 0.4020 NDCG@3: 0.5574 NDCG@5: 0.5881 NDCG@10: 0.6168
+
+Best Result: MAP: 0.5563 MRR: 0.5656 NDCG@1: 0.4051 NDCG@3: 0.5615 NDCG@5: 0.5907 NDCG@10: 0.6208
+
+Best Result: MAP: 0.5611 MRR: 0.5712 NDCG@1: 0.4134 NDCG@3: 0.5657 NDCG@5: 0.5965 NDCG@10: 0.6245
+
+Average loss:0.211505 
+
+Epoch  2 / 3
+
+Best Result: MAP: 0.5624 MRR: 0.5721 NDCG@1: 0.4144 NDCG@3: 0.5671 NDCG@5: 0.5984 NDCG@10: 0.6253
+
+Best Result: MAP: 0.5662 MRR: 0.5751 NDCG@1: 0.4171 NDCG@3: 0.5704 NDCG@5: 0.6015 NDCG@10: 0.6286
+
+Average loss:0.143447 
+
+Epoch  3 / 3
