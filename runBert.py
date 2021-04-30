@@ -13,7 +13,6 @@ from transformers import AdamW, get_linear_schedule_with_warmup, BertTokenizer, 
 from Trec_Metrics import Metrics
 from pair_dataset import PairDataset
 from point_dataset import PointDataset
-from tqdm import tqdm
 import os
 
 parser = argparse.ArgumentParser()
@@ -143,8 +142,7 @@ def fit(model, X_train, X_test):
         logger.write("Epoch " + str(epoch + 1) + "/" + str(args.epochs) + "\n")
         avg_loss = 0
         model.train()
-        epoch_iterator = tqdm(train_dataloader, ncols=120)
-        for i, training_data in enumerate(epoch_iterator):
+        for i, training_data in enumerate(train_dataloader):
             loss = train_step(model, training_data, bce_loss)
             loss = loss.mean()
             loss.backward()
@@ -154,7 +152,6 @@ def fit(model, X_train, X_test):
             model.zero_grad()
             for param_group in optimizer.param_groups:
                 args.learning_rate = param_group['lr']
-            epoch_iterator.set_postfix(lr=args.learning_rate, loss=loss.item())
 
             if i > 0 and i % (one_epoch_step // 5) == 0:
             # if i > 0 and i % 10 == 0:
@@ -164,7 +161,7 @@ def fit(model, X_train, X_test):
             avg_loss += loss.item()
 
         cnt = len(train_dataset) // args.batch_size + 1
-        tqdm.write("Average loss:{:.6f} ".format(avg_loss / cnt))
+        print("Average loss:{:.6f} ".format(avg_loss / cnt))
         best_result = evaluate(model, X_test, best_result)
     logger.close()
 
@@ -182,9 +179,8 @@ def evaluate(model, X_test, best_result, is_test=False):
     result = metrics.evaluate_all_metrics()
 
     if not is_test and result[0] + result[1] > best_result[0] + best_result[1]:
-        # tqdm.write("save model!!!")
         best_result = result
-        tqdm.write("Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f" % (best_result[0], best_result[1], best_result[2], best_result[3], best_result[4], best_result[5]))
+        print("Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f" % (best_result[0], best_result[1], best_result[2], best_result[3], best_result[4], best_result[5]))
         logger.write("Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f \n" % (best_result[0], best_result[1], best_result[2], best_result[3], best_result[4], best_result[5]))
         logger.flush()
         model_to_save = model.module if hasattr(model, 'module') else model
@@ -203,8 +199,7 @@ def predict(model, X_test):
     y_pred = []
     y_label = []
     with torch.no_grad():
-        epoch_iterator = tqdm(test_dataloader, ncols=120, leave=False)
-        for i, test_data in enumerate(epoch_iterator):
+        for i, test_data in enumerate(test_dataloader):
             with torch.no_grad():
                 for key in test_data.keys():
                     test_data[key] = test_data[key].to(device)
