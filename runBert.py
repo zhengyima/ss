@@ -56,6 +56,10 @@ parser.add_argument("--model_path",
                     default="/home/yutao_zhu/BertModel/",
                     type=str,
                     help="The path to save log.")
+parser.add_argument("--pretrain_model_path",
+                    default="",
+                    type=str,
+                    help="The path to save log.")
 args = parser.parse_args()
 args.batch_size = args.per_gpu_batch_size * torch.cuda.device_count()
 args.test_batch_size = args.per_gpu_test_batch_size * torch.cuda.device_count()
@@ -111,8 +115,8 @@ def train_model():
     elif args.task == "tiangong":
         bert_model = BertModel.from_pretrained("../../BertChinese/")
     bert_model.resize_token_embeddings(bert_model.config.vocab_size + additional_tokens)
-    # model_state_dict = torch.load("/home/yutao_zhu/SessionSearch/Pretraining/model/BertContrastive.tau03.aol")
-    # bert_model.load_state_dict({k.replace('bert_model.', ''):v for k, v in model_state_dict.items()}, strict=False)
+    model_state_dict = torch.load(args.pretrain_model_path)
+    bert_model.load_state_dict({k.replace('bert_model.', ''):v for k, v in model_state_dict.items()}, strict=False)
     model = BertSessionSearch(bert_model)
     model = model.to(device)
     model = torch.nn.DataParallel(model)
