@@ -75,11 +75,11 @@ def main():
 
 	
 	os.system(f"cd /cache/ss/Pretraining && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBertContras.py --bert_model_path /cache/data/BertModel/ \
-		--batch_size 256 --log_path /cache/output/pretraining/logs --save_path /cache/output/pretraining/models --epochs 1 \
+		--batch_size 256 --log_path /cache/output/pretraining/logs/ --save_path /cache/output/pretraining/models/ --epochs 1 \
 		--temperature 0.1 --aug_strategy sent_deletion,term_deletion,qd_reorder")
-    os.system(f"cd /cache/ss/Pointwise && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBert.py --bert_model_path /cache/data/BertModel/ \
-	--per_gpu_batch_size 128 --log_path /cache/output/pointwise/logs --save_path /cache/output/pointwise/models --epochs 1 \
-	-- pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.3.1.sent_deletion.term_deletion.qd_reorder")
+	os.system(f"cd /cache/ss/Pointwise && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBert.py --bert_model_path /cache/data/BertModel/ \
+	--per_gpu_batch_size 128 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/ --epochs 1 \
+	--pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.1.1.sent_deletion.term_deletion.qd_reorder")
 	
 	
 	mox.file.copy_parallel('/cache/output', s3_output_path)
