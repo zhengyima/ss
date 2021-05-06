@@ -115,7 +115,7 @@ def train_model():
     elif args.task == "tiangong":
         bert_model = BertModel.from_pretrained("/home/yutao_zhu/BertChinese/")
     bert_model.resize_token_embeddings(bert_model.config.vocab_size + additional_tokens)
-    model = BertContrastive(bert_model)
+    model = BertContrastive(bert_model, temperature=args.temperature)
     # fixed_modules = [model.bert_model.encoder.layer[6:]]
     # for module in fixed_modules:
     #     for param in module.parameters():
@@ -229,7 +229,7 @@ def predict(model, X_test):
 def test_model():
     if args.task == "aol":
         bert_model = BertModel.from_pretrained(args.bert_model_path)
-    model = BertContrastive(bert_model)
+    model = BertContrastive(bert_model, temperature=args.temperature)
     model.bert_model.resize_token_embeddings(model.bert_model.config.vocab_size + 1)
     model_state_dict = torch.load(args.save_path)
     model.load_state_dict({k.replace('module.', ''):v for k, v in model_state_dict.items()})
