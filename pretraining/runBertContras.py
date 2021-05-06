@@ -158,7 +158,7 @@ def fit(model, X_train, X_test):
         loss_logger.write("Epoch " + str(epoch + 1) + "/" + str(args.epochs) + "\n")
         avg_loss = 0
         model.train()
-        epoch_iterator = tqdm(train_dataloader, ncols=120)
+        epoch_iterator = tqdm(train_dataloader)
         for i, training_data in enumerate(epoch_iterator):
             loss, acc = train_step(model, training_data, bce_loss)
             loss = loss.mean()
@@ -212,7 +212,7 @@ def predict(model, X_test):
     y_test_loss = []
     y_test_acc = []
     with torch.no_grad():
-        epoch_iterator = tqdm(test_dataloader, ncols=120, leave=False)
+        epoch_iterator = tqdm(test_dataloader, leave=False)
         for i, test_data in enumerate(epoch_iterator):
             with torch.no_grad():
                 for key in test_data.keys():
