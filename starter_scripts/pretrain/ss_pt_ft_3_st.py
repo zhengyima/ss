@@ -23,7 +23,7 @@ os.system('pip install dgl-cu101')
 
 s3_model_path = s3_rootdir + "/data/yutao/"
 s3_req_path = s3_rootdir + "/data/requirement/"
-s3_output_path = s3_rootdir + "/output/yutao/st_pt_ft/"
+s3_output_path = s3_rootdir + "/output/yutao/ss_pt_ft_3_st/"
 
 def install_package():
 	os.makedirs('/cache/mypackages/')
@@ -80,11 +80,11 @@ def main():
 # 	os.system(f"cd /cache/ss/Pointwise && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBert.py --bert_model_path /cache/data/BertModel/ \
 # 	--per_gpu_batch_size 128 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/ --epochs 1 \
 # 	--pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.1.1.sent_deletion.term_deletion.qd_reorder")
-  os.system(f"cd /cache/ss/Pretraining && python runBertContras.py --bert_model_path /cache/data/BertModel/ --batch_size 512 --log_path /cache/output/pretraining/logs/ --save_path /cache/output/pretraining/models/ --epochs 5 --temperature 0.1 --aug_strategy sent_deletion,term_deletion,qd_reorder")
-  os.system(f"cd /cache/ss/Pointwise && python runBertContras.py --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/ --epochs 3 -- pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.5.10.sent_deletion.term_deletion.qd_reorder" --learning_rate 1e-4)
-  os.system(f"cd /cache/ss/Pretraining && python runBertContras.py --bert_model_path /cache/data/BertModel/ --batch_size 512 --log_path /cache/output/pretraining/logs/ --save_path /cache/output/pretraining/models/ --epochs 5 --temperature 0.05 --aug_strategy sent_deletion,term_deletion,qd_reorder")
-  os.system(f"cd /cache/ss/Pointwise && python runBertContras.py --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/ --epochs 3 -- pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.5.5.sent_deletion.term_deletion.qd_reorder" --learning_rate 1e-4)
-	
+	os.system(f"cd /cache/ss/Pretraining && python runBertContras.py --bert_model_path /cache/data/BertModel/ --batch_size 512 --log_path /cache/output/pretraining/logs/ --save_path /cache/output/pretraining/models/ --epochs 5 --temperature 0.1 --aug_strategy sent_deletion,term_deletion,qd_reorder")
+	os.system(f"cd /cache/ss/Pointwise && python runBertContras.py --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/ --epochs 3 -- pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.5.10.sent_deletion.term_deletion.qd_reorder" --learning_rate 1e-4)
+	os.system(f"cd /cache/ss/Pretraining && python runBertContras.py --bert_model_path /cache/data/BertModel/ --batch_size 512 --log_path /cache/output/pretraining/logs/ --save_path /cache/output/pretraining/models/ --epochs 5 --temperature 0.05 --aug_strategy sent_deletion,term_deletion,qd_reorder")
+	os.system(f"cd /cache/ss/Pointwise && python runBertContras.py --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/ --epochs 3 -- pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.5.5.sent_deletion.term_deletion.qd_reorder" --learning_rate 1e-4)
+		
 	mox.file.copy_parallel('/cache/output', s3_output_path)
 	print("write success")
 
