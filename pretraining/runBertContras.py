@@ -65,7 +65,7 @@ parser.add_argument("--aug_strategy",
 args = parser.parse_args()
 aug_strategy = args.aug_strategy.split(",")
 result_path = "./output/" + args.task + "/"
-args.save_path += BertContrastive.__name__ + "." +  args.task + "." + str(args.epochs) + "." + str(int(args.temperature * 10)) +"."+ ".".join(aug_strategy)
+args.save_path += BertContrastive.__name__ + "." +  args.task + "." + str(args.epochs) + "." + str(int(args.temperature * 100)) + "." + ".".join(aug_strategy)
 score_file_prefix = result_path + BertContrastive.__name__ + "." + args.task
 args.loss_path = args.log_path + BertContrastive.__name__ + "." + args.task + "." + "train_cl_loss" + ".log"
 args.log_path += BertContrastive.__name__ + "." + args.task + ".log"
@@ -180,18 +180,15 @@ def fit(model, X_train, X_test):
                 print("Step " + str(i) + ": " + str(loss.item()) + "\n")
 
             if i > 0 and i % 300 == 0:
-                
                 loss_logger.write("Step " + str(i) + ": " + str(loss.item()) + "\n")
                 loss_logger.flush()
 
             if i > 0 and i % (one_epoch_step // 5) == 0:
             # if i > 0 and i % 10 == 0:
                 best_result = evaluate(model, X_test, best_result)
-                break
                 model.train()
 
             avg_loss += loss.item()
-        break
 
         cnt = len(train_dataset) // args.batch_size + 1
         tqdm.write("Average loss:{:.6f} ".format(avg_loss / cnt))
