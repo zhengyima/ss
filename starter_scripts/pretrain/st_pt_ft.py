@@ -35,19 +35,16 @@ def install_package():
 
 
 def extract_data():
-
 	os.makedirs('/cache/data')
 	mox.file.copy_parallel(s3_model_path, '/cache/data')	
 
 	os.makedirs('/cache/output')
-
-	os.makedirs('/cache/output/logs')
-
-	os.makedirs("/cache/output/models")
-
-
-	
-
+	os.makedirs('/cache/output/pretraining')
+	os.makedirs('/cache/output/pointwise')
+	os.makedirs('/cache/output/pretraining/logs')
+	os.makedirs("/cache/output/pretraining/models")
+	os.makedirs('/cache/output/pointwise/logs')
+	os.makedirs("/cache/output/pointwise/models")
 
 def parse_args():
 	parser = argparse.ArgumentParser(description='Process Reader Data')
@@ -77,8 +74,8 @@ def main():
 
 
 	
-	os.system(f"cd /cache/ss/Pretraining && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBertContras.py --bert_model_path /cache/data/BertModel/ \
-		--batch_size 256 --log_path /cache/output/logs --save_path /cache/output/models --epochs 3")
+	os.system(f"cd /cache/ss/Pretraining && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBertContras.py --bert_model_path /cache/data/BertModel/ --batch_size 256 --log_path /cache/output/pretraining/logs --save_path /cache/output/pretraining/models --epochs 1 --temperature 0.1 --aug_strategy sent_deletion,term_deletion,qd_reorder")
+        os.system(f"cd /cache/ss/Pointwise && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBert.py --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 128 --log_path /cache/output/pointwise/logs --save_path /cache/output/pointwise/models --epochs 1 -- pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.3.1.sent_deletion.term_deletion.qd_reorder")
 	
 	
 	mox.file.copy_parallel('/cache/output', s3_output_path)
