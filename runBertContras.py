@@ -19,11 +19,11 @@ parser.add_argument("--is_training",
                     type=bool,
                     help="Training model or evaluating model?")
 parser.add_argument("--batch_size",
-                    default=200,
+                    default=256,
                     type=int,
                     help="The batch size.")
 parser.add_argument("--test_batch_size",
-                    default=200,
+                    default=256,
                     type=int,
                     help="The batch size.")
 parser.add_argument("--learning_rate",
