@@ -65,7 +65,7 @@ parser.add_argument("--aug_strategy",
 args = parser.parse_args()
 aug_strategy = args.aug_strategy.split(",")
 result_path = "./output/" + args.task + "/"
-args.save_path += BertContrastive.__name__ + "." +  args.task + "." + str(args.epochs) + "." + str(int(args.temperature * 10)) + ".".join(aug_strategy)
+args.save_path += BertContrastive.__name__ + "." +  args.task + "." + str(args.epochs) + "." + str(int(args.temperature * 10)) +"."+ ".".join(aug_strategy)
 score_file_prefix = result_path + BertContrastive.__name__ + "." + args.task
 args.loss_path = args.log_path + BertContrastive.__name__ + "." + args.task + "." + "train_cl_loss" + ".log"
 args.log_path += BertContrastive.__name__ + "." + args.task + ".log"
@@ -134,14 +134,18 @@ def train_step(model, train_data, loss_func):
     return contras_loss, acc
 
 def fit(model, X_train, X_test):
+    print("start fitting.........")
     train_dataset = ContrasDataset(X_train, 128, tokenizer, aug_strategy=["sent_deletion", "term_deletion", "qd_reorder"])
+    print("init train_dataset ok")
     train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=8)
+    print("init train_dataloader ok")
     optimizer = AdamW(model.parameters(), lr=args.learning_rate)
     t_total = int(len(train_dataset) * args.epochs // args.batch_size)
     # scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0 * int(len(train_dataset) // args.batch_size), num_training_steps=t_total)
     one_epoch_step = len(train_dataset) // args.batch_size
     bce_loss = torch.nn.BCEWithLogitsLoss()
     best_result = 1e4
+    print("init optimizer, bce_loss... ok")
 
     # batch = train_dataset.__getitem__(19)
     # print(batch['input_ids1'])
@@ -171,17 +175,23 @@ def fit(model, X_train, X_test):
             for param_group in optimizer.param_groups:
                 args.learning_rate = param_group['lr']
             epoch_iterator.set_postfix(lr=args.learning_rate, cont_loss=loss.item(), acc=acc.item())
+            
+            if i % 100 == 0:
+                print("Step " + str(i) + ": " + str(loss.item()) + "\n")
 
             if i > 0 and i % 300 == 0:
+                
                 loss_logger.write("Step " + str(i) + ": " + str(loss.item()) + "\n")
                 loss_logger.flush()
 
             if i > 0 and i % (one_epoch_step // 5) == 0:
             # if i > 0 and i % 10 == 0:
                 best_result = evaluate(model, X_test, best_result)
+                break
                 model.train()
 
             avg_loss += loss.item()
+        break
 
         cnt = len(train_dataset) // args.batch_size + 1
         tqdm.write("Average loss:{:.6f} ".format(avg_loss / cnt))
