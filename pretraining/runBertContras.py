@@ -183,12 +183,14 @@ def fit(model, X_train, X_test):
                 loss_logger.write("Step " + str(i) + ": " + str(loss.item()) + "\n")
                 loss_logger.flush()
 
-            if i > 0 and i % (one_epoch_step // 5) == 0:
-            # if i > 0 and i % 10 == 0:
+            # if i > 0 and i % (one_epoch_step // 5) == 0:
+            if i > 0 and i % 10 == 0:
                 best_result = evaluate(model, X_test, best_result)
                 model.train()
+                break
 
             avg_loss += loss.item()
+        break
 
         cnt = len(train_dataset) // args.batch_size + 1
         tqdm.write("Average loss:{:.6f} ".format(avg_loss / cnt))
