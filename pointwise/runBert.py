@@ -76,7 +76,7 @@ args.log_path += BertSessionSearch.__name__ + "." + args.task + ".log"
 logger = open(args.log_path, "a")
 device = torch.device("cuda:0")
 print(args)
-logger.write("\n")
+logger.write("\nHyper-parameters:\n")
 args_dict = vars(args)
 for k, v in args_dict.items():
     logger.write(str(k) + "\t" + str(v) + "\n")
