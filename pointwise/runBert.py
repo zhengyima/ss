@@ -77,6 +77,9 @@ logger = open(args.log_path, "a")
 device = torch.device("cuda:0")
 print(args)
 logger.write("\n")
+args_dict = vars(args)
+for k, v in args_dict.items():
+    logger.write(str(k) + "\t" + str(v) + "\n")
 
 if args.task == "aol":
     train_data = "../data/aol/train_line.txt"
