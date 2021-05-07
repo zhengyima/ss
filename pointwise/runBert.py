@@ -71,7 +71,7 @@ data_path = "./data/" + args.task + "/"
 result_path = "./output/" + args.task + "/"
 args.save_path += BertSessionSearch.__name__ + "." +  args.task + "." + args.pretrain_model_path
 args.log_path += BertSessionSearch.__name__ + "." + args.task + ".log"
-args.score_file_path = result_path + BertSessionSearch.__name__ + "." + args.task + "." + args.pretrain_model_path + "." +  args.score_file_path
+# args.score_file_path = result_path + BertSessionSearch.__name__ + "." + args.task + "." + args.pretrain_model_path + "." +  args.score_file_path
 
 logger = open(args.log_path, "a")
 device = torch.device("cuda:0")
@@ -168,16 +168,18 @@ def fit(model, X_train, X_test, X_test_preq=None):
             for param_group in optimizer.param_groups:
                 args.learning_rate = param_group['lr']
 
-            if i > 0 and i % (one_epoch_step // 5) == 0:
-            # if i > 0 and i % 10 == 0:
+            # if i > 0 and i % (one_epoch_step // 5) == 0:
+            if i > 0 and i % 10 == 0:
                 if args.task == "aol":
                     best_result = evaluate(model, X_test, bce_loss, best_result)
                 elif args.task == "tiangong":
                     best_result = evaluate(model, X_test, bce_loss, best_result, X_test_preq)
                 model.train()
+                break
 
             avg_loss += loss.item()
 
+        break
         cnt = len(train_dataset) // args.batch_size + 1
         tqdm.write("Average loss:{:.6f} ".format(avg_loss / cnt))
         if args.task == "aol":
