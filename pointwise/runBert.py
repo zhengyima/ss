@@ -222,6 +222,7 @@ def evaluate(model, X_test, bce_loss, best_result, X_test_preq=None, is_test=Fal
 
     if is_test:
         print("Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f" % (result[0], result[1], result[2], result[3], result[4], result[5]))
+        logger.write("Best Result on Test: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f \n" % (result[0], result[1], result[2], result[3], result[4], result[5]))
     
     return best_result
 
