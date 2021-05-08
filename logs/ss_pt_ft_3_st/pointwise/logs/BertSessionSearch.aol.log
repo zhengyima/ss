@@ -1,0 +1,54 @@
+
+Hyper-parameters:
+is_training	True
+per_gpu_batch_size	64
+per_gpu_test_batch_size	128
+learning_rate	0.0001
+task	aol
+epochs	3
+save_path	/cache/output/pointwise/models/bert_sessionsearch.aol.5.10.sent_deletion.term_deletion.qd_reorder
+score_file_path	/cache/output/BertContrastive.aol.5.10.sent_deletion.term_deletion.qd_reorder.score.txt
+score_file_pre_path	score_file.preq.txt
+bert_model_path	/cache/data/BertModel/
+pretrain_model_path	/cache/output/pretraining/models/BertContrastive.aol.5.10.sent_deletion.term_deletion.qd_reorder
+log_path	/cache/output/pointwise/logs/BertSessionSearch.aol.log
+batch_size	256
+test_batch_size	512
+Epoch 1/3
+Best Result: MAP: 0.4974 MRR: 0.5073 NDCG@1: 0.3488 NDCG@3: 0.4921 NDCG@5: 0.5285 NDCG@10: 0.5628 
+Best Result: MAP: 0.5062 MRR: 0.5157 NDCG@1: 0.3579 NDCG@3: 0.5020 NDCG@5: 0.5377 NDCG@10: 0.5713 
+Best Result: MAP: 0.5129 MRR: 0.5220 NDCG@1: 0.3625 NDCG@3: 0.5076 NDCG@5: 0.5443 NDCG@10: 0.5785 
+Best Result: MAP: 0.5236 MRR: 0.5321 NDCG@1: 0.3765 NDCG@3: 0.5197 NDCG@5: 0.5544 NDCG@10: 0.5869 
+Best Result: MAP: 0.5272 MRR: 0.5353 NDCG@1: 0.3788 NDCG@3: 0.5245 NDCG@5: 0.5602 NDCG@10: 0.5918 
+Epoch 2/3
+Best Result: MAP: 0.5293 MRR: 0.5393 NDCG@1: 0.3838 NDCG@3: 0.5267 NDCG@5: 0.5629 NDCG@10: 0.5939 
+Best Result: MAP: 0.5371 MRR: 0.5465 NDCG@1: 0.3900 NDCG@3: 0.5354 NDCG@5: 0.5712 NDCG@10: 0.6027 
+Epoch 3/3
+Best Result: MAP: 0.5426 MRR: 0.5525 NDCG@1: 0.3938 NDCG@3: 0.5389 NDCG@5: 0.5774 NDCG@10: 0.6098 
+
+Hyper-parameters:
+is_training	True
+per_gpu_batch_size	64
+per_gpu_test_batch_size	128
+learning_rate	0.0001
+task	aol
+epochs	3
+save_path	/cache/output/pointwise/models/bert_sessionsearch.aol.5.5.sent_deletion.term_deletion.qd_reorder
+score_file_path	/cache/output/BertContrastive.aol.5.5.sent_deletion.term_deletion.qd_reorder.score.txt
+score_file_pre_path	score_file.preq.txt
+bert_model_path	/cache/data/BertModel/
+pretrain_model_path	/cache/output/pretraining/models/BertContrastive.aol.5.5.sent_deletion.term_deletion.qd_reorder
+log_path	/cache/output/pointwise/logs/BertSessionSearch.aol.log
+batch_size	256
+test_batch_size	512
+Epoch 1/3
+Best Result: MAP: 0.4968 MRR: 0.5059 NDCG@1: 0.3499 NDCG@3: 0.4905 NDCG@5: 0.5260 NDCG@10: 0.5600 
+Best Result: MAP: 0.5091 MRR: 0.5183 NDCG@1: 0.3594 NDCG@3: 0.5061 NDCG@5: 0.5393 NDCG@10: 0.5740 
+Best Result: MAP: 0.5177 MRR: 0.5267 NDCG@1: 0.3689 NDCG@3: 0.5150 NDCG@5: 0.5487 NDCG@10: 0.5809 
+Best Result: MAP: 0.5183 MRR: 0.5269 NDCG@1: 0.3668 NDCG@3: 0.5152 NDCG@5: 0.5511 NDCG@10: 0.5844 
+Best Result: MAP: 0.5233 MRR: 0.5318 NDCG@1: 0.3726 NDCG@3: 0.5214 NDCG@5: 0.5559 NDCG@10: 0.5886 
+Epoch 2/3
+Best Result: MAP: 0.5260 MRR: 0.5363 NDCG@1: 0.3828 NDCG@3: 0.5226 NDCG@5: 0.5588 NDCG@10: 0.5890 
+Best Result: MAP: 0.5294 MRR: 0.5384 NDCG@1: 0.3815 NDCG@3: 0.5251 NDCG@5: 0.5626 NDCG@10: 0.5944 
+Epoch 3/3
+Best Result: MAP: 0.5378 MRR: 0.5480 NDCG@1: 0.3899 NDCG@3: 0.5329 NDCG@5: 0.5718 NDCG@10: 0.6039 
