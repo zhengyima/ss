@@ -12,7 +12,6 @@ mox.file.shift('os', 'mox')
 os.makedirs("/cache/ss")
 mox.file.copy_parallel(s3_rootdir + '/code/session_search', '/cache/ss')
 
-
 os.system('pip install /cache/ss/torch-1.8.0+cu101-cp36-cp36m-linux_x86_64.whl')
 os.system('pip install /cache/ss/torchvision-0.9.0+cu101-cp36-cp36m-linux_x86_64.whl')
 
@@ -20,14 +19,14 @@ os.system('pip install -r /cache/ss/requirements.txt')
 os.system('pip install dgl-cu101')
 
 
-
 s3_model_path = s3_rootdir + "/data/yutao/"
 s3_req_path = s3_rootdir + "/data/requirement/"
 s3_output_path = s3_rootdir + "/output/yutao/ss_pt_ft_3_st/"
 
+
 def install_package():
 	os.makedirs('/cache/mypackages/')
-	mox.file.copy_parallel(s3_req_path, '/cache/mypackages/')	
+	mox.file.copy_parallel(s3_req_path, '/cache/mypackages/')
 	os.system("pip install sentencepiece==0.1.90")
 	print("begin pytrec")
 	os.system("cd /cache/mypackages/pytrec_eval-0.5 && python setup.py install")
@@ -36,7 +35,7 @@ def install_package():
 
 def extract_data():
 	os.makedirs('/cache/data')
-	mox.file.copy_parallel(s3_model_path, '/cache/data')	
+	mox.file.copy_parallel(s3_model_path, '/cache/data')
 
 	os.makedirs('/cache/output')
 	os.makedirs('/cache/output/pretraining')
@@ -45,6 +44,7 @@ def extract_data():
 	os.makedirs("/cache/output/pretraining/models")
 	os.makedirs('/cache/output/pointwise/logs')
 	os.makedirs("/cache/output/pointwise/models")
+
 
 def parse_args():
 	parser = argparse.ArgumentParser(description='Process Reader Data')
@@ -66,6 +66,7 @@ def parse_args():
 						help='define output directory')
 	return parser.parse_args()
 
+
 def main():
 	extract_data()
 	args = parse_args()
@@ -73,7 +74,6 @@ def main():
 	install_package()
 
 
-	
 # 	os.system(f"cd /cache/ss/Pretraining && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBertContras.py --bert_model_path /cache/data/BertModel/ \
 # 		--batch_size 256 --log_path /cache/output/pretraining/logs/ --save_path /cache/output/pretraining/models/ --epochs 1 \
 # 		--temperature 0.1 --aug_strategy sent_deletion,term_deletion,qd_reorder")
@@ -82,7 +82,7 @@ def main():
 # 	--pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.1.1.sent_deletion.term_deletion.qd_reorder")
 	os.system(f"cd /cache/ss/Pretraining && python runBertContras.py --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 256 --log_path /cache/output/pretraining/logs/ --save_path /cache/output/pretraining/models/ --epochs 5 --temperature 0.1 --aug_strategy sent_deletion,term_deletion,qd_reorder")
 	os.system(f"cd /cache/ss/Pointwise && python runBert.py --score_file_path /cache/output/BertContrastive.aol.5.10.256.sent_deletion.term_deletion.qd_reorder.score.txt --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_sessionsearch.aol.5.10.256.sent_deletion.term_deletion.qd_reorder --epochs 3 --pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.5.10.256.sent_deletion.term_deletion.qd_reorder --learning_rate 1e-4")
-  os.system(f"cd /cache/ss/Pointwise && python runBert.py --score_file_path /cache/output/BertContrastive.aol.5.10.256.sent_deletion.term_deletion.qd_reorder.score.txt --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_sessionsearch.aol.5.10.256.sent_deletion.term_deletion.qd_reorder --epochs 3 --pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.5.10.256.sent_deletion.term_deletion.qd_reorder --learning_rate 5e-5")
+	os.system(f"cd /cache/ss/Pointwise && python runBert.py --score_file_path /cache/output/BertContrastive.aol.5.10.256.sent_deletion.term_deletion.qd_reorder.score.txt --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_sessionsearch.aol.5.10.256.sent_deletion.term_deletion.qd_reorder --epochs 3 --pretrain_model_path /cache/output/pretraining/models/BertContrastive.aol.5.10.256.sent_deletion.term_deletion.qd_reorder --learning_rate 5e-5")
 
 	mox.file.copy_parallel('/cache/output', s3_output_path)
 	print("write success")
