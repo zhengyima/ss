@@ -18,11 +18,11 @@ parser.add_argument("--is_training",
                     default=True,
                     type=bool,
                     help="Training model or evaluating model?")
-parser.add_argument("--batch_size",
+parser.add_argument("--per_gpu_batch_size",
                     default=256,
                     type=int,
                     help="The batch size.")
-parser.add_argument("--test_batch_size",
+parser.add_argument("--per_gpu_test_batch_size",
                     default=256,
                     type=int,
                     help="The batch size.")
@@ -63,6 +63,8 @@ parser.add_argument("--aug_strategy",
                     type=str,
                     help="Augmentation strategy.")
 args = parser.parse_args()
+args.batch_size = args.per_gpu_batch_size * torch.cuda.device_count()
+args.test_batch_size = args.per_gpu_test_batch_size * torch.cuda.device_count()
 aug_strategy = args.aug_strategy.split(",")
 result_path = "./output/" + args.task + "/"
 args.save_path += BertContrastive.__name__ + "." +  args.task + "." + str(args.epochs) + "." + str(int(args.temperature * 100)) + "." + ".".join(aug_strategy)
