@@ -1,0 +1,23 @@
+Epoch  3 / 3
+Average loss:0.208793 
+start test...
+Best Result: MAP: 0.5395 MRR: 0.5497 NDCG@1: 0.3916 NDCG@3: 0.5352 NDCG@5: 0.5737 NDCG@10: 0.6061
+Namespace(aug_strategy='sent_deletion,term_deletion', batch_size=512, bert_model_path='/cache/data/BertModel/', epochs=5, is_training=True, learning_rate=5e-05, log_path='/cache/output/pretraining/logs/BertContrastive.aol.log', loss_path='/cache/output/pretraining/logs/BertContrastive.aol.train_cl_loss.log', save_path='/cache/output/pretraining/models/BertContrastive.aol.5.30.sent_deletion.term_deletion', score_file_path='./output/aol/BertContrastive.aol.score_file.txt', task='aol', temperature=0.3, test_batch_size=256)
+* number of parameters: 109484544
+start fitting.........
+init train_dataset ok
+init train_dataloader ok
+init optimizer, bce_loss... ok
+
+Epoch  3 / 3
+Average loss:0.208793 
+start test...
+Best Result: MAP: 0.5395 MRR: 0.5497 NDCG@1: 0.3916 NDCG@3: 0.5352 NDCG@5: 0.5737 NDCG@10: 0.6061
+write success
+[Modelarts Service Log]Training end with return code: 0
+[Modelarts Service Log]handle outputs of training job
+[Modelarts Service Log][modelarts_logger] modelarts-pipe found
+INFO:root:Using MoXing-v1.17.1-47ce498c
+INFO:root:Using OBS-Python-SDK-3.1.2
+[ModelArts Service Log][INFO][2021/05/08 14:20:03]: env MA_OUTPUTS is not found, skip the outputs handler
+[Modelarts Service Log]Training completed.
