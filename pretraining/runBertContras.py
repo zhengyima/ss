@@ -235,20 +235,8 @@ def predict(model, X_test):
     y_test_acc = np.asarray(y_test_acc)
     return y_test_loss, y_test_acc
 
-def test_model():
-    if args.task == "aol":
-        bert_model = BertModel.from_pretrained(args.bert_model_path)
-    model = BertContrastive(bert_model, temperature=args.temperature)
-    model.bert_model.resize_token_embeddings(model.bert_model.config.vocab_size + 1)
-    model_state_dict = torch.load(args.save_path)
-    model.load_state_dict({k.replace('module.', ''):v for k, v in model_state_dict.items()})
-    model = model.to(device)
-    model = torch.nn.DataParallel(model)
-    evaluate(model, predict_data, [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], True)
-
 if __name__ == '__main__':
     set_seed()
     if args.is_training:
         train_model()
-    else:
-        test_model()
+
