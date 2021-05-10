@@ -137,7 +137,7 @@ def train_step(model, train_data, loss_func):
 
 def fit(model, X_train, X_test):
     print("start fitting.........")
-    train_dataset = ContrasDataset(X_train, 128, tokenizer, aug_strategy=["sent_deletion", "term_deletion", "qd_reorder"])
+    train_dataset = ContrasDataset(X_train, 128, tokenizer, aug_strategy=aug_strategy)
     print("init train_dataset ok")
     train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=8)
     print("init train_dataloader ok")
@@ -216,7 +216,7 @@ def evaluate(model, X_test, best_result, is_test=False):
 def predict(model, X_test):
     model.eval()
     test_loss = []
-    test_dataset = ContrasDataset(X_test, 128, tokenizer, aug_strategy=["sent_deletion", "term_deletion"])
+    test_dataset = ContrasDataset(X_test, 128, tokenizer, aug_strategy=aug_strategy)
     test_dataloader = DataLoader(test_dataset, batch_size=args.test_batch_size, shuffle=False, num_workers=8)
     y_test_loss = []
     y_test_acc = []
