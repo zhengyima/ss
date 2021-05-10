@@ -96,9 +96,11 @@ elif args.task == "tiangong":
     test_pre_data = "../data/tiangong/test.point.preq.txt"
     predict_data = "../data/tiangong/test.txt"
     tokenizer = BertTokenizer.from_pretrained(args.bert_model_path)
-    additional_tokens = 2
+    additional_tokens = 4
     tokenizer.add_tokens("[eos]")
     tokenizer.add_tokens("[empty_d]")
+    tokenizer.add_tokens("[term_del]")
+    tokenizer.add_tokens("[sent_del]")
 else:
     assert False
 
@@ -280,7 +282,10 @@ def test_model():
     model.load_state_dict({k.replace('module.', ''):v for k, v in model_state_dict.items()})
     model = model.to(device)
     model = torch.nn.DataParallel(model)
-    evaluate(model, predict_data, None, [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], is_test=True)
+    if args.task == "aol":
+        evaluate(model, predict_data, None, [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], True)
+    elif args.task == "tiangong":
+        pass
 
 if __name__ == '__main__':
     set_seed()
