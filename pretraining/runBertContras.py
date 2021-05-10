@@ -88,8 +88,8 @@ if args.task == "aol":
     tokenizer.add_tokens("[term_del]")
     tokenizer.add_tokens("[sent_del]")
 elif args.task == "tiangong":
-    train_data = "./data/tiangong/train.txt"
-    test_data = "./data/tiangong/test.txt"
+    train_data = "./data/tiangong/train.pos.txt"
+    test_data = "./data/tiangong/test.pos.txt"
     tokenizer = BertTokenizer.from_pretrained(args.bert_model_path)
     additional_tokens = 4
     tokenizer.add_tokens("[eos]")
