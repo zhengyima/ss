@@ -90,7 +90,7 @@ if args.task == "aol":
 elif args.task == "tiangong":
     train_data = "./data/tiangong/train.txt"
     test_data = "./data/tiangong/test.txt"
-    tokenizer = BertTokenizer.from_pretrained("/home/yutao_zhu/BertChinese/")
+    tokenizer = BertTokenizer.from_pretrained(args.bert_model_path)
     additional_tokens = 4
     tokenizer.add_tokens("[eos]")
     tokenizer.add_tokens("[empty_d]")
@@ -115,7 +115,7 @@ def train_model():
     if args.task == "aol":
         bert_model = BertModel.from_pretrained(args.bert_model_path)
     elif args.task == "tiangong":
-        bert_model = BertModel.from_pretrained("/home/yutao_zhu/BertChinese/")
+        bert_model = BertModel.from_pretrained(args.bert_model_path)
     bert_model.resize_token_embeddings(bert_model.config.vocab_size + additional_tokens)
     model = BertContrastive(bert_model, temperature=args.temperature)
     # fixed_modules = [model.bert_model.encoder.layer[6:]]
