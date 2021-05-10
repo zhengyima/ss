@@ -93,9 +93,9 @@ elif args.task == "tiangong":
     tokenizer = BertTokenizer.from_pretrained("/home/yutao_zhu/BertChinese/")
     additional_tokens = 4
     tokenizer.add_tokens("[eos]")
+    tokenizer.add_tokens("[empty_d]")
     tokenizer.add_tokens("[term_del]")
     tokenizer.add_tokens("[sent_del]")
-    tokenizer.add_tokens("[empty_d]")
 else:
     assert False
 
