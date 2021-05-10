@@ -280,7 +280,7 @@ def test_model():
     model.load_state_dict({k.replace('module.', ''):v for k, v in model_state_dict.items()})
     model = model.to(device)
     model = torch.nn.DataParallel(model)
-    evaluate(model, predict_data, None, [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], True)
+    evaluate(model, predict_data, None, [0.0, 0.0, 0.0, 0.0, 0.0, 0.0], is_test=True)
 
 if __name__ == '__main__':
     set_seed()
