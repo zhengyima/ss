@@ -1,0 +1,12 @@
+Epoch  3 / 3
+Average loss:0.208793 
+start test...
+Best Result: MAP: 0.5395 MRR: 0.5497 NDCG@1: 0.3916 NDCG@3: 0.5352 NDCG@5: 0.5737 NDCG@10: 0.6061
+Namespace(batch_size=256, bert_model_path='/cache/data/BertModel/', epochs=3, is_training=True, learning_rate=5e-05, log_path='/cache/output/pointwise/logs/BertSessionSearch.aol.log', per_gpu_batch_size=64, per_gpu_test_batch_size=128, pretrain_model_path='/cache/output/pretraining/models/BertContrastive.aol.5.30.128.sent_deletion.term_deletion.qd_reorder', save_path='/cache/output/pointwise/models/bert_sessionsearch.aol.5.30.128.sent_deletion.term_deletion.qd_reorder', score_file_path='/cache/output/BertContrastive.aol.5.30.128.sent_deletion.term_deletion.qd_reorder.score.txt', score_file_pre_path='score_file.preq.txt', task='aol', test_batch_size=512)
+
+
+Epoch  3 / 3
+Average loss:0.209267 
+start test...
+Best Result: MAP: 0.5451 MRR: 0.5552 NDCG@1: 0.3972 NDCG@3: 0.5415 NDCG@5: 0.5801 NDCG@10: 0.6116
+write success
