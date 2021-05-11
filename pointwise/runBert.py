@@ -150,6 +150,7 @@ def fit(model, X_train, X_test, X_test_preq=None):
     one_epoch_step = len(train_dataset) // args.batch_size
     bce_loss = torch.nn.BCEWithLogitsLoss()
     best_result = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    best_result_pre = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
     
     # batch = train_dataset.__getitem__(19)
     # print(batch['input_ids'].shape)
@@ -178,7 +179,7 @@ def fit(model, X_train, X_test, X_test_preq=None):
                 if args.task == "aol":
                     best_result = evaluate(model, X_test, bce_loss, best_result)
                 elif args.task == "tiangong":
-                    best_result = evaluate(model, X_test, bce_loss, best_result, X_test_preq)
+                    best_result = evaluate(model, X_test, bce_loss, best_result, X_test_preq=X_test_preq, best_result_pre=best_result_pre)
                 model.train()
 
             avg_loss += loss.item()
@@ -191,7 +192,7 @@ def fit(model, X_train, X_test, X_test_preq=None):
             best_result = evaluate(model, X_test, bce_loss, best_result, X_test_preq)
     # logger.close()
 
-def evaluate(model, X_test, bce_loss, best_result, X_test_preq=None, is_test=False):
+def evaluate(model, X_test, bce_loss, best_result, X_test_preq=None, best_result_pre=None, is_test=False):
     if args.task == "aol":
         y_pred, y_label = predict(model, X_test)
         metrics = Metrics(args.score_file_path, segment=50)
@@ -210,18 +211,21 @@ def evaluate(model, X_test, bce_loss, best_result, X_test_preq=None, is_test=Fal
             
     result = metrics.evaluate_all_metrics()
 
-    if not is_test and result[0] + result[1] > best_result[0] + best_result[1]:
+    if not is_test and result[0] + result[1] + result[2] + result[3] + result[4] + result[5] > best_result[0] + best_result[1] + best_result[2] + best_result[3] + best_result[4] + best_result[5]:
         # tqdm.write("save model!!!")
         best_result = result
         print("Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f" % (best_result[0], best_result[1], best_result[2], best_result[3], best_result[4], best_result[5]))
         logger.write("Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f \n" % (best_result[0], best_result[1], best_result[2], best_result[3], best_result[4], best_result[5]))
-        if args.task == "tiangong":
-            tqdm.write("Previsou Query - Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f" % (result_pre[0], result_pre[1], result_pre[2], result_pre[3], result_pre[4], result_pre[5]))
-            logger.write("Previsou Query - Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f \n" % (result_pre[0], result_pre[1], result_pre[2], result_pre[3], result_pre[4], result_pre[5]))
         logger.flush()
         model_to_save = model.module if hasattr(model, 'module') else model
         torch.save(model_to_save.state_dict(), args.save_path)
-
+    
+    if not is_test and args.task == "tiangong": and result_pre[0] + result_pre[1] > best_result_pre[0] + best_result_pre[1]:
+        best_result_pre = result_pre
+        print("Previsou Query - Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f" % (result_pre[0], result_pre[1], result_pre[2], result_pre[3], result_pre[4], result_pre[5]))
+        logger.write("Previsou Query - Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f \n" % (result_pre[0], result_pre[1], result_pre[2], result_pre[3], result_pre[4], result_pre[5]))
+        logger.flush()
+    
     if is_test:
         print("Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f" % (result[0], result[1], result[2], result[3], result[4], result[5]))
         logger.write("Best Result on Test: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f \n" % (result[0], result[1], result[2], result[3], result[4], result[5]))
