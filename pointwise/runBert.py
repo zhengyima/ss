@@ -220,7 +220,7 @@ def evaluate(model, X_test, bce_loss, best_result, X_test_preq=None, best_result
         model_to_save = model.module if hasattr(model, 'module') else model
         torch.save(model_to_save.state_dict(), args.save_path)
     
-    if not is_test and args.task == "tiangong": and result_pre[0] + result_pre[1] > best_result_pre[0] + best_result_pre[1]:
+    if not is_test and args.task == "tiangong" and result_pre[0] + result_pre[1] > best_result_pre[0] + best_result_pre[1]:
         best_result_pre = result_pre
         print("Previsou Query - Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f" % (result_pre[0], result_pre[1], result_pre[2], result_pre[3], result_pre[4], result_pre[5]))
         logger.write("Previsou Query - Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f \n" % (result_pre[0], result_pre[1], result_pre[2], result_pre[3], result_pre[4], result_pre[5]))
