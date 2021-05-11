@@ -58,6 +58,10 @@ parser.add_argument("--bert_model_path",
                     default="/home/yutao_zhu/BertModel/",
                     type=str,
                     help="The path to BERT model.")
+parser.add_argument("--pretrain_model_path",
+                    default="",
+                    type=str,
+                    help="The path to save log.")
 parser.add_argument("--aug_strategy",
                     default="sent_deletion,term_deletion,qd_reorder",
                     type=str,
@@ -117,6 +121,9 @@ def train_model():
     elif args.task == "tiangong":
         bert_model = BertModel.from_pretrained(args.bert_model_path)
     bert_model.resize_token_embeddings(bert_model.config.vocab_size + additional_tokens)
+    if args.pretrain_model_path != "":
+        model_state_dict = torch.load(args.pretrain_model_path)
+        bert_model.load_state_dict({k.replace('bert_model.', ''):v for k, v in model_state_dict.items()}, strict=False)
     model = BertContrastive(bert_model, temperature=args.temperature)
     n_params = sum([p.numel() for p in model.parameters() if p.requires_grad])
     print('* number of parameters: %d' % n_params)
