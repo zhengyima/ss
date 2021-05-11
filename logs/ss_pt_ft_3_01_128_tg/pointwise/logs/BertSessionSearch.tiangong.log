@@ -1,0 +1,25 @@
+
+Hyper-parameters:
+is_training	True
+per_gpu_batch_size	64
+per_gpu_test_batch_size	128
+learning_rate	5e-05
+task	tiangong
+epochs	3
+save_path	/cache/output/pointwise/models/bert_sessionsearch.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder
+score_file_path	/cache/output/BertContrastive.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt
+score_file_pre_path	score_file.preq.txt
+bert_model_path	/cache/data/BertChinese/
+pretrain_model_path	/cache/output/pretraining/models/BertContrastive.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder
+log_path	/cache/output/pointwise/logs/BertSessionSearch.tiangong.log
+batch_size	256
+test_batch_size	512
+Epoch 1/3
+Best Result: MAP: 0.8541 MRR: 0.9230 NDCG@1: 0.7355 NDCG@3: 0.7364 NDCG@5: 0.7539 NDCG@10: 0.8830 
+Previsou Query - Best Result: MAP: 0.6790 MRR: 0.7004 NDCG@1: 0.5500 NDCG@3: 0.6659 NDCG@5: 0.7157 NDCG@10: 0.7654 
+Best Result: MAP: 0.8602 MRR: 0.9299 NDCG@1: 0.7452 NDCG@3: 0.7432 NDCG@5: 0.7642 NDCG@10: 0.8876 
+Previsou Query - Best Result: MAP: 0.6965 MRR: 0.7210 NDCG@1: 0.5798 NDCG@3: 0.6824 NDCG@5: 0.7332 NDCG@10: 0.7792 
+Epoch 2/3
+Best Result: MAP: 0.8616 MRR: 0.9314 NDCG@1: 0.7614 NDCG@3: 0.7567 NDCG@5: 0.7693 NDCG@10: 0.8915 
+Previsou Query - Best Result: MAP: 0.7257 MRR: 0.7489 NDCG@1: 0.6118 NDCG@3: 0.7208 NDCG@5: 0.7633 NDCG@10: 0.8013 
+Epoch 3/3
