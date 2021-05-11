@@ -164,9 +164,9 @@ def fit(model, X_train, X_test):
             if i > 0 and i % (one_epoch_step // 5) == 0:
             # if i > 0 and i % 10 == 0:
                 if args.task == "aol":
-		    best_result = evaluate(model, X_test, best_result)
-		elif args.task == "tiangong":
-		    best_result = evaluate(model, X_test, best_result, X_test_preq)
+                    best_result = evaluate(model, X_test, best_result)
+                elif args.task == "tiangong":
+                    best_result = evaluate(model, X_test, best_result, X_test_preq)
                 model.train()
 
             avg_loss += loss.item()
@@ -182,12 +182,12 @@ def evaluate(model, X_test, best_result, X_test_preq=None, is_test=False):
         metrics = Metrics(args.score_file_path, segment=50)
     elif args.task == "tiangong":
         y_pred, y_label, y_pred_pre, y_label_pre = predict(model, X_test, X_test_preq)
-		metrics = Metrics(args.score_file_path, segment=10)
-		metrics_pre = Metrics(args.score_file_pre_path, segment=10)
-		with open(args.score_file_pre_path, 'w') as output:
-			for score, label in zip(y_pred_pre, y_label_pre):
-				output.write(str(score) + '\t' + str(label) + '\n')
-		result_pre = metrics_pre.evaluate_all_metrics()
+        metrics = Metrics(args.score_file_path, segment=10)
+        metrics_pre = Metrics(args.score_file_pre_path, segment=10)
+        with open(args.score_file_pre_path, 'w') as output:
+            for score, label in zip(y_pred_pre, y_label_pre):
+                output.write(str(score) + '\t' + str(label) + '\n')
+        result_pre = metrics_pre.evaluate_all_metrics()
         # metrics = Metrics(args.score_file_path, segment=10)
 
     with open(args.score_file_path, 'w') as output:
