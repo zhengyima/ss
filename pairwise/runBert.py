@@ -79,7 +79,7 @@ if args.task == "aol":
     train_data = "../data/aol/train.pairwise.txt"
     test_data = "../data/aol/test_line.middle.txt"
     predict_data = "../data/aol/test_line.txt"
-    tokenizer = BertTokenizer.from_pretrained(args.model_path)
+    tokenizer = BertTokenizer.from_pretrained(args.bert_model_path)
     additional_tokens = 3
     tokenizer.add_tokens("[eos]")
     tokenizer.add_tokens("[term_del]")
@@ -88,7 +88,7 @@ elif args.task == "tiangong":
     train_data = "../data/tiangong/train.pairwise.txt"
     test_last_data = "../data/tiangong/test.point.lastq.txt"
     test_pre_data = "../data/tiangong/test.point.preq.txt"
-    tokenizer = BertTokenizer.from_pretrained(args.model_path)
+    tokenizer = BertTokenizer.from_pretrained(args.bert_model_path)
     additional_tokens = 4
     tokenizer.add_tokens("[eos]")
     tokenizer.add_tokens("[empty_d]")
@@ -111,9 +111,9 @@ def set_seed(seed=0):
 def train_model():
     # load model
     if args.task == "aol":
-        bert_model = BertModel.from_pretrained(args.model_path)
+        bert_model = BertModel.from_pretrained(args.bert_model_path)
     elif args.task == "tiangong":
-        bert_model = BertModel.from_pretrained(args.model_path)
+        bert_model = BertModel.from_pretrained(args.bert_model_path)
     if args.pretrain_model_path != "":
         bert_model.resize_token_embeddings(bert_model.config.vocab_size + additional_tokens)
         model_state_dict = torch.load(args.pretrain_model_path)
