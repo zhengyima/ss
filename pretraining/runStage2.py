@@ -62,20 +62,15 @@ parser.add_argument("--pretrain_model_path",
                     default="",
                     type=str,
                     help="The path to save log.")
-parser.add_argument("--aug_strategy",
-                    default="sent_deletion,term_deletion,qd_reorder",
-                    type=str,
-                    help="Augmentation strategy.")
 args = parser.parse_args()
 args.batch_size = args.per_gpu_batch_size * torch.cuda.device_count()
 args.test_batch_size = args.per_gpu_test_batch_size * torch.cuda.device_count()
-aug_strategy = args.aug_strategy.split(",")
 result_path = "./output/" + args.task + "/"
-args.save_path += BertContrastive.__name__ + "." +  args.task + "." + str(args.epochs) + "." + str(int(args.temperature * 100)) + "." + str(args.per_gpu_batch_size) + "." + ".".join(aug_strategy)
+args.save_path += BertContrastive.__name__ + "." +  args.task + "." + str(args.epochs) + "." + str(int(args.temperature * 100)) + "." + str(args.per_gpu_batch_size) + ".stage2"
 score_file_prefix = result_path + BertContrastive.__name__ + "." + args.task
 args.loss_path = args.log_path + BertContrastive.__name__ + "." + args.task + "." + "train_cl_loss" + ".log"
-args.log_path += BertContrastive.__name__ + "." + args.task + ".log"
-args.score_file_path = score_file_prefix + "." +  args.score_file_path
+args.log_path += BertContrastive.__name__ + ".stage2." + args.task + ".log"
+args.score_file_path = score_file_prefix + ".stage2." +  args.score_file_path
 
 logger = open(args.log_path, "a")
 loss_logger = open(args.loss_path, "a")
@@ -139,7 +134,7 @@ def train_step(model, train_data, loss_func):
     return contras_loss, acc
 
 def fit(model, X_train, X_test):
-    train_dataset = ContrasDataset(X_train, 128, tokenizer, aug_strategy=aug_strategy)
+    train_dataset = ContrasDataset(X_train, 128, tokenizer)
     train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=8)
     optimizer = AdamW(model.parameters(), lr=args.learning_rate)
     t_total = int(len(train_dataset) * args.epochs // args.batch_size)
@@ -212,7 +207,7 @@ def evaluate(model, X_test, best_result, is_test=False):
 def predict(model, X_test):
     model.eval()
     test_loss = []
-    test_dataset = ContrasDataset(X_test, 128, tokenizer, aug_strategy=aug_strategy)
+    test_dataset = ContrasDataset(X_test, 128, tokenizer)
     test_dataloader = DataLoader(test_dataset, batch_size=args.test_batch_size, shuffle=False, num_workers=8)
     y_test_loss = []
     y_test_acc = []
