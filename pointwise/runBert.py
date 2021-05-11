@@ -57,7 +57,7 @@ parser.add_argument("--bert_model_path",
                     type=str,
                     help="The path to save log.")
 parser.add_argument("--pretrain_model_path",
-                    default="BertContrastive.sent_del.aol",
+                    default="",
                     type=str,
                     help="The path to save log.")
 parser.add_argument("--log_path",
@@ -122,8 +122,9 @@ def train_model():
     elif args.task == "tiangong":
         bert_model = BertModel.from_pretrained(args.bert_model_path)
     bert_model.resize_token_embeddings(bert_model.config.vocab_size + additional_tokens)
-    model_state_dict = torch.load(args.pretrain_model_path)
-    bert_model.load_state_dict({k.replace('bert_model.', ''):v for k, v in model_state_dict.items()}, strict=False)
+    if args.pretrain_model_path != "":
+        model_state_dict = torch.load(args.pretrain_model_path)
+        bert_model.load_state_dict({k.replace('bert_model.', ''):v for k, v in model_state_dict.items()}, strict=False)
     model = BertSessionSearch(bert_model)
     model = model.to(device)
     model = torch.nn.DataParallel(model)
