@@ -5,8 +5,8 @@ import argparse
 import moxing as mox
 import sys
 
-# s3_rootdir = "s3://obs-app-2020042019121301221/SEaaKM/m50017495/"
-s3_rootdir = "s3://bucket-852/m50017495/"
+s3_rootdir = "s3://obs-app-2020042019121301221/SEaaKM/m50017495/"
+# s3_rootdir = "s3://bucket-852/m50017495/"
 
 mox.file.shift('os', 'mox')
 os.makedirs("/cache/ss")
@@ -73,8 +73,8 @@ def main():
 
     install_package()
 
-    os.system(f"cd /cache/ss/Pointwise && python runBert.py --task aol --score_file_path /cache/output/BertContrastive.aol.score.txt --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_sessionsearch.aol --epochs 3 --learning_rate 5e-5")
-    os.system(f"cd /cache/ss/Pointwise && python runBert.py --task tiangong --score_file_path /cache/output/BertContrastive.tiangong.score.txt --bert_model_path /cache/data/BertChinese/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_sessionsearch.tiangong --epochs 3 --learning_rate 5e-5")
+    os.system(f"cd /cache/ss/Pointwise && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBert.py --task aol --score_file_path /cache/output/BertContrastive.aol.score.txt --bert_model_path /cache/data/BertModel/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_sessionsearch.aol --epochs 3 --learning_rate 5e-5")
+    os.system(f"cd /cache/ss/Pointwise && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBert.py --task tiangong --score_file_path /cache/output/BertContrastive.tiangong.score.txt --bert_model_path /cache/data/BertChinese/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_sessionsearch.tiangong --epochs 3 --learning_rate 5e-5")
 
     mox.file.copy_parallel('/cache/output', s3_output_path)
     print("write success")
