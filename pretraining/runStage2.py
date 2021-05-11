@@ -118,10 +118,6 @@ def train_model():
         bert_model = BertModel.from_pretrained(args.bert_model_path)
     bert_model.resize_token_embeddings(bert_model.config.vocab_size + additional_tokens)
     model = BertContrastive(bert_model, temperature=args.temperature)
-    # fixed_modules = [model.bert_model.encoder.layer[6:]]
-    # for module in fixed_modules:
-    #     for param in module.parameters():
-    #         param.requires_grad = False
     n_params = sum([p.numel() for p in model.parameters() if p.requires_grad])
     print('* number of parameters: %d' % n_params)
     model = model.to(device)
@@ -140,7 +136,7 @@ def fit(model, X_train, X_test):
     train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=8)
     optimizer = AdamW(model.parameters(), lr=args.learning_rate)
     t_total = int(len(train_dataset) * args.epochs // args.batch_size)
-    # scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0 * int(len(train_dataset) // args.batch_size), num_training_steps=t_total)
+    scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0.1 * int(len(train_dataset) // args.batch_size), num_training_steps=t_total)
     one_epoch_step = len(train_dataset) // args.batch_size
     bce_loss = torch.nn.BCEWithLogitsLoss()
     best_result = 1e4
@@ -166,9 +162,9 @@ def fit(model, X_train, X_test):
             loss = loss.mean()
             acc = acc.mean()
             loss.backward()
-            utils.clip_grad_norm_(model.parameters(), 5.0)
+            utils.clip_grad_norm_(model.parameters(), 1.0)
             optimizer.step()
-            # scheduler.step()
+            scheduler.step()
             model.zero_grad()
             for param_group in optimizer.param_groups:
                 args.learning_rate = param_group['lr']
