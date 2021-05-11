@@ -64,9 +64,7 @@ args = parser.parse_args()
 args.batch_size = args.per_gpu_batch_size * torch.cuda.device_count()
 args.test_batch_size = args.per_gpu_test_batch_size * torch.cuda.device_count()
 result_path = "./output/" + args.task + "/"
-args.save_path += BertSessionSearch.__name__ + "." +  args.task
 args.log_path += BertSessionSearch.__name__ + "." + args.task + ".log"
-args.score_file_path = result_path + BertSessionSearch.__name__ + "." + args.task + "." +  args.score_file_path
 
 logger = open(args.log_path, "a")
 device = torch.device("cuda:0")
