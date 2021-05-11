@@ -52,7 +52,7 @@ parser.add_argument("--log_path",
                     default="./log/",
                     type=str,
                     help="The path to save log.")
-parser.add_argument("--model_path",
+parser.add_argument("--bert_model_path",
                     default="/home/yutao_zhu/BertModel/",
                     type=str,
                     help="The path to save log.")
