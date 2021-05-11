@@ -164,9 +164,9 @@ def fit(model, X_train, X_test):
             if i > 0 and i % (one_epoch_step // 5) == 0:
             # if i > 0 and i % 10 == 0:
                 if args.task == "aol":
-					best_result = evaluate(model, X_test, best_result)
-				elif args.task == "tiangong":
-					best_result = evaluate(model, X_test, best_result, X_test_preq)
+		    best_result = evaluate(model, X_test, best_result)
+		elif args.task == "tiangong":
+		    best_result = evaluate(model, X_test, best_result, X_test_preq)
                 model.train()
 
             avg_loss += loss.item()
