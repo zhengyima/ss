@@ -21,7 +21,7 @@ os.system('pip install dgl-cu101')
 
 s3_model_path = s3_rootdir + "/data/yutao/"
 s3_req_path = s3_rootdir + "/data/requirement/"
-s3_output_path = s3_rootdir + "/output/yutao/ss_pt_ft_3_01_128_pair/"
+s3_output_path = s3_rootdir + "/output/yutao/pair/"
 
 
 def install_package():
