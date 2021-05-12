@@ -114,10 +114,10 @@ def train_model():
         bert_model = BertModel.from_pretrained(args.bert_model_path)
     elif args.task == "tiangong":
         bert_model = BertModel.from_pretrained(args.bert_model_path)
+    bert_model.resize_token_embeddings(bert_model.config.vocab_size + additional_tokens)
     if args.pretrain_model_path != "":
-        bert_model.resize_token_embeddings(bert_model.config.vocab_size + additional_tokens)
         model_state_dict = torch.load(args.pretrain_model_path)
-    bert_model.load_state_dict({k.replace('bert_model.', ''):v for k, v in model_state_dict.items()}, strict=False)
+        bert_model.load_state_dict({k.replace('bert_model.', ''):v for k, v in model_state_dict.items()}, strict=False)
     model = BertSessionSearch(bert_model)
     model = model.to(device)
     model = torch.nn.DataParallel(model)
@@ -237,8 +237,7 @@ def predict(model, X_test, X_test_pre=None):
         y_pred_pre = []
         y_label_pre = []
         with torch.no_grad():
-            epoch_iterator = tqdm(test_dataloader, ncols=120, leave=False)
-            for i, test_data in enumerate(epoch_iterator):
+            for i, test_data in enumerate(test_dataloader):
                 with torch.no_grad():
                     for key in test_data.keys():
                         test_data[key] = test_data[key].to(device)
