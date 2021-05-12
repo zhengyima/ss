@@ -247,7 +247,7 @@ def predict(model, X_test, X_test_pre=None):
                 with torch.no_grad():
                     for key in test_data.keys():
                         test_data[key] = test_data[key].to(device)
-                y_pred_test = model.forward(test_data)
+                y_pred_test, _ = model.forward(test_data)
                 y_pred_pre.append(y_pred_test.data.cpu().numpy().reshape(-1))
                 y_tmp_label = test_data["labels"].data.cpu().numpy().reshape(-1)
                 y_label_pre.append(y_tmp_label)
