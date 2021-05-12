@@ -190,7 +190,7 @@ def fit(model, X_train, X_test, X_test_preq=None):
         if args.task == "aol":
             best_result = evaluate(model, X_test, bce_loss, best_result)
         elif args.task == "tiangong":
-            best_result = evaluate(model, X_test, bce_loss, best_result, X_test_preq)
+            best_result = evaluate(model, X_test, bce_loss, best_result, X_test_preq=X_test_preq, best_result_pre=best_result_pre)
     # logger.close()
 
 def evaluate(model, X_test, bce_loss, best_result, X_test_preq=None, best_result_pre=None, is_test=False):
