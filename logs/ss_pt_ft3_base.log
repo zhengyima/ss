@@ -1,0 +1,23 @@
+Epoch  1 / 3
+libibverbs: Warning: couldn't open config directory '/etc/libibverbs.d'.
+libibverbs: Warning: no userspace device-specific driver found for /sys/class/infiniband_verbs/uverbs0
+Best Result: MAP: 0.5010 MRR: 0.5103 NDCG@1: 0.3524 NDCG@3: 0.4941 NDCG@5: 0.5313 NDCG@10: 0.5650
+Best Result: MAP: 0.5101 MRR: 0.5193 NDCG@1: 0.3592 NDCG@3: 0.5079 NDCG@5: 0.5428 NDCG@10: 0.5769
+Best Result: MAP: 0.5146 MRR: 0.5238 NDCG@1: 0.3639 NDCG@3: 0.5099 NDCG@5: 0.5485 NDCG@10: 0.5812
+Best Result: MAP: 0.5223 MRR: 0.5316 NDCG@1: 0.3724 NDCG@3: 0.5195 NDCG@5: 0.5561 NDCG@10: 0.5866
+Best Result: MAP: 0.5286 MRR: 0.5379 NDCG@1: 0.3774 NDCG@3: 0.5275 NDCG@5: 0.5647 NDCG@10: 0.5938
+Average loss:0.309146 
+Best Result: MAP: 0.5311 MRR: 0.5403 NDCG@1: 0.3807 NDCG@3: 0.5298 NDCG@5: 0.5667 NDCG@10: 0.5960
+
+Epoch  2 / 3
+Best Result: MAP: 0.5324 MRR: 0.5414 NDCG@1: 0.3896 NDCG@3: 0.5278 NDCG@5: 0.5638 NDCG@10: 0.5958
+Best Result: MAP: 0.5327 MRR: 0.5427 NDCG@1: 0.3892 NDCG@3: 0.5289 NDCG@5: 0.5667 NDCG@10: 0.5964
+Best Result: MAP: 0.5347 MRR: 0.5437 NDCG@1: 0.3910 NDCG@3: 0.5312 NDCG@5: 0.5674 NDCG@10: 0.5977
+Best Result: MAP: 0.5360 MRR: 0.5451 NDCG@1: 0.3902 NDCG@3: 0.5320 NDCG@5: 0.5714 NDCG@10: 0.6010
+Average loss:0.249448 
+
+Epoch  3 / 3
+Average loss:0.210771 
+start test...
+Best Result: MAP: 0.5421 MRR: 0.5526 NDCG@1: 0.3937 NDCG@3: 0.5388 NDCG@5: 0.5767 NDCG@10: 0.6085
+Namespace(batch_size=256, bert_model_path='/cache/data/BertChinese/', epochs=3, is_training=True, learning_rate=5e-05, log_path='/cache/output/pointwise/logs/BertSessionSearch.tiangong.log', per_gpu_batch_size=64, per_gpu_test_batch_size=128, pretrain_model_path='', save_path='/cache/output/pointwise/models/bert_sessionsearch.tiangong', score_file_path='/cache/output/BertContrastive.tiangong.score.txt', score_file_pre_path='score_file.preq.txt', task='tiangong', test_batch_size=512)
