@@ -7,6 +7,7 @@ import torch
 import logging
 import torch.nn.utils as utils
 import torch.nn.functional as F
+from tqdm import tqdm
 from torch.utils.data import DataLoader, TensorDataset
 from BertSessionSearch import BertSessionSearch
 from transformers import AdamW, get_linear_schedule_with_warmup, BertTokenizer, BertModel
@@ -144,12 +145,14 @@ def fit(model, X_train, X_test, X_test_preq=None):
     one_epoch_step = len(train_dataset) // args.batch_size
     bce_loss = torch.nn.BCEWithLogitsLoss()
     best_result = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+    best_result_pre = [0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
 
     for epoch in range(args.epochs):
         print("\nEpoch ", epoch + 1, "/", args.epochs)
         logger.write("Epoch " + str(epoch + 1) + "/" + str(args.epochs) + "\n")
         avg_loss = 0
         model.train()
+        # epoch_iterator = tqdm(train_dataloader, ncols=120)
         for i, training_data in enumerate(train_dataloader):
             loss = train_step(model, training_data, bce_loss)
             loss = loss.mean()
@@ -166,19 +169,22 @@ def fit(model, X_train, X_test, X_test_preq=None):
                 if args.task == "aol":
                     best_result = evaluate(model, X_test, best_result)
                 elif args.task == "tiangong":
-                    best_result = evaluate(model, X_test, best_result, X_test_preq)
+                    best_result = evaluate(model, X_test, best_result, X_test_preq=X_test_preq, best_result_pre=best_result_pre)
                 model.train()
 
             avg_loss += loss.item()
 
         cnt = len(train_dataset) // args.batch_size + 1
         print("Average loss:{:.6f} ".format(avg_loss / cnt))
-        best_result = evaluate(model, X_test, best_result)
+        if args.task == "aol":
+            best_result = evaluate(model, X_test, best_result)
+        elif args.task == "tiangong":
+            best_result = evaluate(model, X_test, best_result, X_test_preq=X_test_preq, best_result_pre=best_result_pre)
     logger.close()
 
-def evaluate(model, X_test, best_result, X_test_preq=None, is_test=False):
-    y_pred, y_label = predict(model, X_test)
+def evaluate(model, X_test, best_result, X_test_preq=None, best_result_pre=None, is_test=False):
     if args.task == "aol":
+        y_pred, y_label = predict(model, X_test)
         metrics = Metrics(args.score_file_path, segment=50)
     elif args.task == "tiangong":
         y_pred, y_label, y_pred_pre, y_label_pre = predict(model, X_test, X_test_preq)
