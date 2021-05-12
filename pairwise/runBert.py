@@ -232,7 +232,7 @@ def predict(model, X_test, X_test_pre=None):
     y_label = np.concatenate(y_label, axis=0).tolist()
 
     if args.task == "tiangong":
-        test_dataset = FileDataset(X_test_pre, 128, tokenizer)
+        test_dataset = PointDataset(X_test_pre, 128, tokenizer)
         test_dataloader = DataLoader(test_dataset, batch_size=args.test_batch_size, shuffle=False, num_workers=8)
         y_pred_pre = []
         y_label_pre = []
