@@ -49,6 +49,10 @@ parser.add_argument("--score_file_path",
                     default="score_file.txt",
                     type=str,
                     help="The path to save model.")
+parser.add_argument("--score_file_pre_path",
+                    default="score_file.preq.txt",
+                    type=str,
+                    help="The path to save model.")
 parser.add_argument("--log_path",
                     default="./log/",
                     type=str,
