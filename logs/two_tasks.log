@@ -1,0 +1,43 @@
+            
+Namespace(batch_size=256, bert_model_path='/cache/data/BertModel/', epochs=3, is_training=True, learning_rate=5e-05, log_path='/cache/output/pointwise/logs/BertSessionSearch.aol.log', per_gpu_batch_size=64, per_gpu_test_batch_size=128, pretrain_model_path='/cache/output/pretraining/models/BertContrastive.aol.5.10.128.sent_deletion.term_deletion', save_path='/cache/output/pointwise/models/bert_sessionsearch.aol.5.10.128.sent_deletion.term_deletion', score_file_path='/cache/output/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.score.txt', score_file_pre_path='score_file.preq.txt', task='aol', test_batch_size=512)
+
+Epoch  1 / 3
+Best Result: MAP: 0.5165 MRR: 0.5257 NDCG@1: 0.3670 NDCG@3: 0.5130 NDCG@5: 0.5494 NDCG@10: 0.5818
+Best Result: MAP: 0.5185 MRR: 0.5275 NDCG@1: 0.3701 NDCG@3: 0.5147 NDCG@5: 0.5500 NDCG@10: 0.5840
+Best Result: MAP: 0.5229 MRR: 0.5323 NDCG@1: 0.3737 NDCG@3: 0.5209 NDCG@5: 0.5553 NDCG@10: 0.5883
+Best Result: MAP: 0.5354 MRR: 0.5440 NDCG@1: 0.3869 NDCG@3: 0.5352 NDCG@5: 0.5673 NDCG@10: 0.5984
+Average loss:0.298536 
+Best Result: MAP: 0.5356 MRR: 0.5446 NDCG@1: 0.3854 NDCG@3: 0.5354 NDCG@5: 0.5704 NDCG@10: 0.6010
+
+Epoch  2 / 3
+Best Result: MAP: 0.5403 MRR: 0.5501 NDCG@1: 0.3958 NDCG@3: 0.5363 NDCG@5: 0.5754 NDCG@10: 0.6052
+Best Result: MAP: 0.5413 MRR: 0.5506 NDCG@1: 0.3962 NDCG@3: 0.5380 NDCG@5: 0.5764 NDCG@10: 0.6056
+Average loss:0.240877 
+
+Epoch  3 / 3
+Average loss:0.202269 
+start test...
+Best Result: MAP: 0.5457 MRR: 0.5559 NDCG@1: 0.3985 NDCG@3: 0.5419 NDCG@5: 0.5801 NDCG@10: 0.6119
+Namespace(aug_strategy='sent_deletion,qd_reorder', batch_size=512, bert_model_path='/cache/data/BertModel/', epochs=5, is_training=True, learning_rate=5e-05, log_path='/cache/output/pretraining/logs/BertContrastive.aol.log', loss_path='/cache/output/pretraining/logs/BertContrastive.aol.train_cl_loss.log', per_gpu_batch_size=128, per_gpu_test_batch_size=256, save_path='/cache/output/pretraining/models/BertContrastive.aol.5.10.128.sent_deletion.qd_reorder', score_file_path='./output/aol/BertContrastive.aol.score_file.txt', task='aol', temperature=0.1, test_batch_size=1024)
+* number of parameters: 109484544
+start fitting.........
+init train_dataset ok
+init train_dataloader ok
+init optimizer, bce_loss... ok
+
+
+Epoch  1 / 3
+Best Result: MAP: 0.5162 MRR: 0.5252 NDCG@1: 0.3656 NDCG@3: 0.5139 NDCG@5: 0.5471 NDCG@10: 0.5805
+Best Result: MAP: 0.5187 MRR: 0.5283 NDCG@1: 0.3730 NDCG@3: 0.5141 NDCG@5: 0.5509 NDCG@10: 0.5823
+Best Result: MAP: 0.5261 MRR: 0.5351 NDCG@1: 0.3786 NDCG@3: 0.5231 NDCG@5: 0.5578 NDCG@10: 0.5914
+Best Result: MAP: 0.5302 MRR: 0.5392 NDCG@1: 0.3842 NDCG@3: 0.5271 NDCG@5: 0.5628 NDCG@10: 0.5946
+Average loss:0.299552 
+Best Result: MAP: 0.5304 MRR: 0.5394 NDCG@1: 0.3817 NDCG@3: 0.5285 NDCG@5: 0.5647 NDCG@10: 0.5961
+
+Epoch  2 / 3
+Best Result: MAP: 0.5327 MRR: 0.5420 NDCG@1: 0.3863 NDCG@3: 0.5281 NDCG@5: 0.5652 NDCG@10: 0.5978
+Best Result: MAP: 0.5359 MRR: 0.5449 NDCG@1: 0.3892 NDCG@3: 0.5329 NDCG@5: 0.5694 NDCG@10: 0.6003
+Best Result: MAP: 0.5428 MRR: 0.5521 NDCG@1: 0.3979 NDCG@3: 0.5412 NDCG@5: 0.5770 NDCG@10: 0.6073
+Average loss:0.241340 
+
+Epoch  3 / 3
