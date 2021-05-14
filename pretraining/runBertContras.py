@@ -19,11 +19,11 @@ parser.add_argument("--is_training",
                     type=bool,
                     help="Training model or evaluating model?")
 parser.add_argument("--per_gpu_batch_size",
-                    default=256,
+                    default=64,
                     type=int,
                     help="The batch size.")
 parser.add_argument("--per_gpu_test_batch_size",
-                    default=256,
+                    default=64,
                     type=int,
                     help="The batch size.")
 parser.add_argument("--learning_rate",
@@ -34,6 +34,10 @@ parser.add_argument("--temperature",
                     default=0.1,
                     type=float,
                     help="The temperature for CL.")
+parser.add_argument("--ratio",
+                    default=0.5,
+                    type=float,
+                    help="The mask ratio for CL.")
 parser.add_argument("--task",
                     default="aol",
                     type=str,
@@ -136,27 +140,14 @@ def train_step(model, train_data, loss_func):
     return contras_loss, acc
 
 def fit(model, X_train, X_test):
-    print("start fitting.........")
-    train_dataset = ContrasDataset(X_train, 128, tokenizer, aug_strategy=aug_strategy)
-    print("init train_dataset ok")
+    train_dataset = ContrasDataset(X_train, 128, tokenizer, aug_strategy=aug_strategy, ratio=args.ratio)
     train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=8)
-    print("init train_dataloader ok")
     optimizer = AdamW(model.parameters(), lr=args.learning_rate)
     t_total = int(len(train_dataset) * args.epochs // args.batch_size)
     # scheduler = get_linear_schedule_with_warmup(optimizer, num_warmup_steps=0 * int(len(train_dataset) // args.batch_size), num_training_steps=t_total)
     one_epoch_step = len(train_dataset) // args.batch_size
     bce_loss = torch.nn.BCEWithLogitsLoss()
     best_result = 1e4
-    print("init optimizer, bce_loss... ok")
-
-    # batch = train_dataset.__getitem__(19)
-    # print(batch['input_ids1'])
-    # print(batch['attention_mask1'])
-    # print(batch['token_type_ids1'])
-    # print(batch['input_ids2'])
-    # print(batch['attention_mask2'])
-    # print(batch['token_type_ids2'])
-    # assert False
 
     for epoch in range(args.epochs):
         print("\nEpoch ", epoch + 1, "/", args.epochs)
@@ -164,7 +155,7 @@ def fit(model, X_train, X_test):
         loss_logger.write("Epoch " + str(epoch + 1) + "/" + str(args.epochs) + "\n")
         avg_loss = 0
         model.train()
-        epoch_iterator = tqdm(train_dataloader)
+        epoch_iterator = tqdm(train_dataloader, ncols=120)
         for i, training_data in enumerate(epoch_iterator):
             loss, acc = train_step(model, training_data, bce_loss)
             loss = loss.mean()
@@ -177,9 +168,6 @@ def fit(model, X_train, X_test):
             for param_group in optimizer.param_groups:
                 args.learning_rate = param_group['lr']
             epoch_iterator.set_postfix(lr=args.learning_rate, cont_loss=loss.item(), acc=acc.item())
-            
-            if i % 100 == 0:
-                print("Step " + str(i) + ": " + str(loss.item()) + "\n")
 
             if i > 0 and i % 300 == 0:
                 loss_logger.write("Step " + str(i) + ": " + str(loss.item()) + "\n")
@@ -216,12 +204,12 @@ def evaluate(model, X_test, best_result, is_test=False):
 def predict(model, X_test):
     model.eval()
     test_loss = []
-    test_dataset = ContrasDataset(X_test, 128, tokenizer, aug_strategy=aug_strategy)
+    test_dataset = ContrasDataset(X_test, 128, tokenizer, aug_strategy=aug_strategy, ratio=args.ratio)
     test_dataloader = DataLoader(test_dataset, batch_size=args.test_batch_size, shuffle=False, num_workers=8)
     y_test_loss = []
     y_test_acc = []
     with torch.no_grad():
-        epoch_iterator = tqdm(test_dataloader, leave=False)
+        epoch_iterator = tqdm(test_dataloader, ncols=120, leave=False)
         for i, test_data in enumerate(epoch_iterator):
             with torch.no_grad():
                 for key in test_data.keys():
@@ -239,4 +227,3 @@ if __name__ == '__main__':
     set_seed()
     if args.is_training:
         train_model()
-

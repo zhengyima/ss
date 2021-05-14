@@ -6,12 +6,13 @@ import random
 import re
     
 class ContrasDataset(Dataset):
-    def __init__(self, filename, max_seq_length, tokenizer, aug_strategy=["sent_deletion", "term_deletion", "qd_reorder"]):
+    def __init__(self, filename, max_seq_length, tokenizer, aug_strategy=["sent_deletion", "term_deletion", "qd_reorder"], ratio=0.5):
         super(ContrasDataset, self).__init__()
         self._filename = filename
         self._max_seq_length = max_seq_length
         self._tokenizer = tokenizer
         self._aug_strategy = aug_strategy
+        self._ratio = ratio
         self._rnd = random.Random(0)
         with open(filename, "r") as f:
             self._total_data = len(f.readlines())
@@ -70,9 +71,9 @@ class ContrasDataset(Dataset):
         segment_ids = np.asarray(segment_ids)
         return input_ids, all_attention_mask, segment_ids
     
-    def _term_deletion(self, sent, ratio=0.5):
+    def _term_deletion(self, sent):
         tokens = sent.split()
-        num_to_delete = int(round(len(tokens) * ratio))
+        num_to_delete = max(round(len(tokens) * self._ratio), 1)
         cand_indexes = []
         for (i, token) in enumerate(tokens):
             if len(cand_indexes) >= 1 and token.startswith("##"):
@@ -106,7 +107,7 @@ class ContrasDataset(Dataset):
     def augmentation(self, sequence, strategy):
         random_positions = -1
         if strategy == "sent_deletion":
-            random_num = int(len(sequence) * 0.5)
+            random_num = max(round(len(sequence) * self._ratio), 1)
             random_positions = self._rnd.sample(list(range(len(sequence))), random_num)
             for random_position in random_positions:
                 sequence[random_position] = "[sent_del]"
