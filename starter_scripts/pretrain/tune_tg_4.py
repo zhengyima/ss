@@ -21,7 +21,7 @@ os.system('pip install dgl-cu101')
 
 s3_model_path = s3_rootdir + "/data/yutao/"
 s3_req_path = s3_rootdir + "/data/requirement/"
-s3_output_path = s3_rootdir + "/output/yutao/tune_tg/"
+s3_output_path = s3_rootdir + "/output/yutao/tune_tg_4/"
 
 
 def install_package():
@@ -72,12 +72,11 @@ def main():
     args = parse_args()
 
     install_package()
+    
+    os.system(f"cd /cache/ss/Pretraining && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBertContras.py --task tiangong --bert_model_path /cache/data/BertChinese/ --per_gpu_batch_size 128 --log_path /cache/output/pretraining/logs/ --save_path /cache/output/pretraining/models/ --epochs 5 --temperature 0.1 --aug_strategy sent_deletion,term_deletion,qd_reorder --ratio 0.5")
+    os.system(f"cd /cache/ss/Pointwise && python runBert.py --task tiangong --score_file_path /cache/output/bert_pointwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt --score_file_pre_path /cache/output/bert_pointwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.pre.score.txt --bert_model_path /cache/data/BertChinese/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_pointwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder --epochs 3 --pretrain_model_path /cache/output/pretraining/models/BertContrastive.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder --learning_rate 6e-5")
 
-    os.system(f"cd /cache/ss/Pretraining && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBertContras.py --task tiangong --bert_model_path /cache/data/BertChinese/ --per_gpu_batch_size 128 --log_path /cache/output/pretraining/logs/ --save_path /cache/output/pretraining/models/ --epochs 5 --temperature 0.05 --aug_strategy sent_deletion,term_deletion,qd_reorder")
-    os.system(f"cd /cache/ss/Pointwise && python runBert.py --task tiangong --score_file_path /cache/output/bert_pointwise.tiangong.5.5.128.sent_deletion.term_deletion.qd_reorder.score.txt --score_file_pre_path /cache/output/bert_pointwise.tiangong.5.5.128.sent_deletion.term_deletion.qd_reorder.pre.score.txt --bert_model_path /cache/data/BertChinese/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_pointwise.tiangong.5.5.128.sent_deletion.term_deletion.qd_reorder --epochs 3 --pretrain_model_path /cache/output/pretraining/models/BertContrastive.tiangong.5.5.128.sent_deletion.term_deletion.qd_reorder --learning_rate 5e-5")
-
-    os.system(f"cd /cache/ss/Pretraining && CUDA_VISIBLE_DEVICES=0,1,2,3 python runBertContras.py --task tiangong --bert_model_path /cache/data/BertChinese/ --per_gpu_batch_size 128 --log_path /cache/output/pretraining/logs/ --save_path /cache/output/pretraining/models/ --epochs 5 --temperature 0.3 --aug_strategy sent_deletion,term_deletion,qd_reorder")
-    os.system(f"cd /cache/ss/Pointwise && python runBert.py --task tiangong --score_file_path /cache/output/BertContrastive.tiangong.5.30.128.sent_deletion.term_deletion.qd_reorder.score.txt --score_file_pre_path /cache/output/bert_pointwise.tiangong.5.30.128.sent_deletion.term_deletion.qd_reorder.pre.score.txt --bert_model_path /cache/data/BertChinese/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_sessionsearch.tiangong.5.30.128.sent_deletion.term_deletion.qd_reorder --epochs 3 --pretrain_model_path /cache/output/pretraining/models/BertContrastive.tiangong.5.30.128.sent_deletion.term_deletion.qd_reorder --learning_rate 5e-5")
+    os.system(f"cd /cache/ss/Pointwise && python runBert.py --task tiangong --score_file_path /cache/output/BertContrastive.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt --score_file_pre_path /cache/output/bert_pointwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.pre.score.txt --bert_model_path /cache/data/BertChinese/ --per_gpu_batch_size 64 --log_path /cache/output/pointwise/logs/ --save_path /cache/output/pointwise/models/bert_sessionsearch.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder --epochs 3 --pretrain_model_path /cache/output/pretraining/models/BertContrastive.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder --learning_rate 4e-5")
 
 
     mox.file.copy_parallel('/cache/output', s3_output_path)
