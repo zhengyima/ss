@@ -1,0 +1,42 @@
+
+Epoch 1/5
+Best Result: Loss: 1.8990 Acc: 0.5166
+Best Result: Loss: 1.8538 Acc: 0.5131
+Best Result: Loss: 1.8204 Acc: 0.5183
+Best Result: Loss: 1.8184 Acc: 0.5036
+Best Result: Loss: 1.7287 Acc: 0.5318
+Epoch 2/5
+Best Result: Loss: 1.7097 Acc: 0.5368
+Best Result: Loss: 1.6823 Acc: 0.5486
+Epoch 3/5
+Epoch 4/5
+Best Result: Loss: 1.6501 Acc: 0.5508
+Best Result: Loss: 1.6361 Acc: 0.5555
+Epoch 5/5
+Best Result: Loss: 1.6051 Acc: 0.5679
+Best Result: Loss: 1.6035 Acc: 0.5631
+
+Epoch 1/5
+Best Result: Loss: 3.2867 Acc: 0.3299
+Best Result: Loss: 3.1338 Acc: 0.3527
+Best Result: Loss: 3.0587 Acc: 0.3617
+Best Result: Loss: 3.0245 Acc: 0.3694
+Best Result: Loss: 3.0115 Acc: 0.3663
+Epoch 2/5
+Best Result: Loss: 3.0025 Acc: 0.3710
+Best Result: Loss: 2.9933 Acc: 0.3819
+Best Result: Loss: 2.9844 Acc: 0.3724
+Best Result: Loss: 2.9771 Acc: 0.3802
+Best Result: Loss: 2.9543 Acc: 0.3828
+Epoch 3/5
+Best Result: Loss: 2.9447 Acc: 0.3836
+Best Result: Loss: 2.9417 Acc: 0.3780
+Best Result: Loss: 2.9359 Acc: 0.3852
+Best Result: Loss: 2.9288 Acc: 0.3884
+Epoch 4/5
+Best Result: Loss: 2.9263 Acc: 0.3845
+Best Result: Loss: 2.9237 Acc: 0.3800
+Best Result: Loss: 2.9230 Acc: 0.3832
+Epoch 5/5
+Best Result: Loss: 2.9150 Acc: 0.3814
+Best Result: Loss: 2.9112 Acc: 0.3852
