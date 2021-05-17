@@ -1,0 +1,78 @@
+
+Hyper-parameters:
+is_training	True
+per_gpu_batch_size	64
+per_gpu_test_batch_size	128
+learning_rate	5e-05
+task	aol
+epochs	3
+save_path	/cache/output/pointwise/models/bert_sessionsearch.aol.5.10.128.sent_deletion.term_deletion.qd_reorder
+score_file_path	/cache/output/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt
+score_file_pre_path	score_file.preq.txt
+bert_model_path	/cache/data/BertModel/
+pretrain_model_path	/cache/output/pretraining/models/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder
+log_path	/cache/output/pointwise/logs/BertSessionSearch.aol.log
+batch_size	256
+test_batch_size	512
+Epoch 1/3
+Best Result: MAP: 0.5140 MRR: 0.5236 NDCG@1: 0.3652 NDCG@3: 0.5101 NDCG@5: 0.5451 NDCG@10: 0.5791 
+Best Result: MAP: 0.5296 MRR: 0.5395 NDCG@1: 0.3836 NDCG@3: 0.5286 NDCG@5: 0.5619 NDCG@10: 0.5945 
+Best Result: MAP: 0.5311 MRR: 0.5398 NDCG@1: 0.3826 NDCG@3: 0.5293 NDCG@5: 0.5629 NDCG@10: 0.5952 
+Best Result: MAP: 0.5339 MRR: 0.5434 NDCG@1: 0.3867 NDCG@3: 0.5330 NDCG@5: 0.5658 NDCG@10: 0.5980 
+Best Result: MAP: 0.5426 MRR: 0.5513 NDCG@1: 0.3960 NDCG@3: 0.5391 NDCG@5: 0.5779 NDCG@10: 0.6068 
+Epoch 2/3
+Best Result: MAP: 0.5474 MRR: 0.5566 NDCG@1: 0.4026 NDCG@3: 0.5447 NDCG@5: 0.5816 NDCG@10: 0.6121 
+Epoch 3/3
+Best Result: MAP: 0.5497 MRR: 0.5599 NDCG@1: 0.4016 NDCG@3: 0.5476 NDCG@5: 0.5845 NDCG@10: 0.6161 
+
+Hyper-parameters:
+is_training	True
+per_gpu_batch_size	64
+per_gpu_test_batch_size	128
+learning_rate	5e-05
+task	aol
+epochs	3
+save_path	/cache/output/pointwise/models/bert_sessionsearch.aol.5.10.128.sent_deletion.term_deletion.qd_reorder
+score_file_path	/cache/output/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt
+score_file_pre_path	score_file.preq.txt
+bert_model_path	/cache/data/BertModel/
+pretrain_model_path	/cache/output/pretraining/models/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder
+log_path	/cache/output/pointwise/logs/BertSessionSearch.aol.log
+batch_size	256
+test_batch_size	512
+Epoch 1/3
+Best Result: MAP: 0.5100 MRR: 0.5188 NDCG@1: 0.3594 NDCG@3: 0.5056 NDCG@5: 0.5413 NDCG@10: 0.5750 
+Best Result: MAP: 0.5237 MRR: 0.5333 NDCG@1: 0.3741 NDCG@3: 0.5233 NDCG@5: 0.5571 NDCG@10: 0.5885 
+Best Result: MAP: 0.5263 MRR: 0.5348 NDCG@1: 0.3753 NDCG@3: 0.5257 NDCG@5: 0.5588 NDCG@10: 0.5912 
+Best Result: MAP: 0.5355 MRR: 0.5445 NDCG@1: 0.3902 NDCG@3: 0.5328 NDCG@5: 0.5679 NDCG@10: 0.5991 
+Best Result: MAP: 0.5363 MRR: 0.5456 NDCG@1: 0.3898 NDCG@3: 0.5334 NDCG@5: 0.5717 NDCG@10: 0.6016 
+Epoch 2/3
+Best Result: MAP: 0.5382 MRR: 0.5470 NDCG@1: 0.3912 NDCG@3: 0.5363 NDCG@5: 0.5717 NDCG@10: 0.6034 
+Best Result: MAP: 0.5451 MRR: 0.5544 NDCG@1: 0.4001 NDCG@3: 0.5425 NDCG@5: 0.5796 NDCG@10: 0.6084 
+Epoch 3/3
+Best Result: MAP: 0.5478 MRR: 0.5579 NDCG@1: 0.3996 NDCG@3: 0.5451 NDCG@5: 0.5824 NDCG@10: 0.6136 
+
+Hyper-parameters:
+is_training	True
+per_gpu_batch_size	64
+per_gpu_test_batch_size	128
+learning_rate	5e-05
+task	aol
+epochs	3
+save_path	/cache/output/pointwise/models/bert_sessionsearch.aol.5.10.128.sent_deletion.term_deletion.qd_reorder
+score_file_path	/cache/output/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt
+score_file_pre_path	score_file.preq.txt
+bert_model_path	/cache/data/BertModel/
+pretrain_model_path	/cache/output/pretraining/models/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder
+log_path	/cache/output/pointwise/logs/BertSessionSearch.aol.log
+batch_size	256
+test_batch_size	512
+Epoch 1/3
+Best Result: MAP: 0.5166 MRR: 0.5261 NDCG@1: 0.3660 NDCG@3: 0.5151 NDCG@5: 0.5481 NDCG@10: 0.5817 
+Best Result: MAP: 0.5302 MRR: 0.5398 NDCG@1: 0.3834 NDCG@3: 0.5303 NDCG@5: 0.5627 NDCG@10: 0.5939 
+Best Result: MAP: 0.5329 MRR: 0.5420 NDCG@1: 0.3881 NDCG@3: 0.5300 NDCG@5: 0.5642 NDCG@10: 0.5968 
+Best Result: MAP: 0.5390 MRR: 0.5476 NDCG@1: 0.3935 NDCG@3: 0.5360 NDCG@5: 0.5730 NDCG@10: 0.6026 
+Epoch 2/3
+Best Result: MAP: 0.5448 MRR: 0.5533 NDCG@1: 0.3968 NDCG@3: 0.5428 NDCG@5: 0.5783 NDCG@10: 0.6098 
+Epoch 3/3
+Best Result: MAP: 0.5480 MRR: 0.5579 NDCG@1: 0.3990 NDCG@3: 0.5451 NDCG@5: 0.5830 NDCG@10: 0.6145 
