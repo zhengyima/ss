@@ -1,0 +1,85 @@
+
+Hyper-parameters:
+is_training	True
+per_gpu_batch_size	64
+per_gpu_test_batch_size	128
+learning_rate	6e-05
+task	tiangong
+epochs	3
+save_path	/cache/output/pointwise/models/bert_pointwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder
+score_file_path	/cache/output/bert_pointwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt
+score_file_pre_path	/cache/output/bert_pointwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.pre.score.txt
+bert_model_path	/cache/data/BertChinese/
+pretrain_model_path	/cache/output/pretraining/models/BertContrastive.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder
+log_path	/cache/output/pointwise/logs/BertSessionSearch.tiangong.log
+batch_size	256
+test_batch_size	512
+Epoch 1/3
+Best Result: MAP: 0.8544 MRR: 0.9238 NDCG@1: 0.7374 NDCG@3: 0.7369 NDCG@5: 0.7512 NDCG@10: 0.8823 
+Previsou Query - Best Result: MAP: 0.6824 MRR: 0.7051 NDCG@1: 0.5549 NDCG@3: 0.6680 NDCG@5: 0.7175 NDCG@10: 0.7684 
+Best Result: MAP: 0.8573 MRR: 0.9242 NDCG@1: 0.7430 NDCG@3: 0.7412 NDCG@5: 0.7592 NDCG@10: 0.8859 
+Previsou Query - Best Result: MAP: 0.6928 MRR: 0.7167 NDCG@1: 0.5711 NDCG@3: 0.6781 NDCG@5: 0.7314 NDCG@10: 0.7764 
+Best Result: MAP: 0.8575 MRR: 0.9329 NDCG@1: 0.7582 NDCG@3: 0.7433 NDCG@5: 0.7563 NDCG@10: 0.8871 
+Previsou Query - Best Result: MAP: 0.7028 MRR: 0.7254 NDCG@1: 0.5809 NDCG@3: 0.6922 NDCG@5: 0.7401 NDCG@10: 0.7838 
+Previsou Query - Best Result: MAP: 0.7044 MRR: 0.7272 NDCG@1: 0.5832 NDCG@3: 0.6929 NDCG@5: 0.7432 NDCG@10: 0.7851 
+Previsou Query - Best Result: MAP: 0.7093 MRR: 0.7319 NDCG@1: 0.5885 NDCG@3: 0.7012 NDCG@5: 0.7474 NDCG@10: 0.7889 
+Previsou Query - Best Result: MAP: 0.7098 MRR: 0.7327 NDCG@1: 0.5900 NDCG@3: 0.7010 NDCG@5: 0.7479 NDCG@10: 0.7894 
+Epoch 2/3
+Previsou Query - Best Result: MAP: 0.7148 MRR: 0.7369 NDCG@1: 0.5960 NDCG@3: 0.7067 NDCG@5: 0.7519 NDCG@10: 0.7928 
+Previsou Query - Best Result: MAP: 0.7216 MRR: 0.7428 NDCG@1: 0.6058 NDCG@3: 0.7137 NDCG@5: 0.7583 NDCG@10: 0.7977 
+Previsou Query - Best Result: MAP: 0.7241 MRR: 0.7447 NDCG@1: 0.6081 NDCG@3: 0.7165 NDCG@5: 0.7591 NDCG@10: 0.7995 
+Previsou Query - Best Result: MAP: 0.7283 MRR: 0.7490 NDCG@1: 0.6115 NDCG@3: 0.7211 NDCG@5: 0.7659 NDCG@10: 0.8028 
+Best Result: MAP: 0.8577 MRR: 0.9296 NDCG@1: 0.7571 NDCG@3: 0.7490 NDCG@5: 0.7581 NDCG@10: 0.8884 
+Previsou Query - Best Result: MAP: 0.7303 MRR: 0.7540 NDCG@1: 0.6201 NDCG@3: 0.7195 NDCG@5: 0.7688 NDCG@10: 0.8050 
+Best Result: MAP: 0.8581 MRR: 0.9297 NDCG@1: 0.7568 NDCG@3: 0.7492 NDCG@5: 0.7586 NDCG@10: 0.8885 
+Previsou Query - Best Result: MAP: 0.7306 MRR: 0.7542 NDCG@1: 0.6201 NDCG@3: 0.7199 NDCG@5: 0.7688 NDCG@10: 0.8052 
+Epoch 3/3
+Best Result: MAP: 0.8560 MRR: 0.9289 NDCG@1: 0.7607 NDCG@3: 0.7498 NDCG@5: 0.7603 NDCG@10: 0.8888 
+Previsou Query - Best Result: MAP: 0.7317 MRR: 0.7542 NDCG@1: 0.6183 NDCG@3: 0.7240 NDCG@5: 0.7689 NDCG@10: 0.8058 
+Previsou Query - Best Result: MAP: 0.7365 MRR: 0.7590 NDCG@1: 0.6262 NDCG@3: 0.7307 NDCG@5: 0.7728 NDCG@10: 0.8093 
+Previsou Query - Best Result: MAP: 0.7356 MRR: 0.7581 NDCG@1: 0.6243 NDCG@3: 0.7295 NDCG@5: 0.7717 NDCG@10: 0.8087 
+Previsou Query - Best Result: MAP: 0.7366 MRR: 0.7593 NDCG@1: 0.6254 NDCG@3: 0.7292 NDCG@5: 0.7730 NDCG@10: 0.8095 
+Previsou Query - Best Result: MAP: 0.7392 MRR: 0.7619 NDCG@1: 0.6303 NDCG@3: 0.7324 NDCG@5: 0.7753 NDCG@10: 0.8114 
+Previsou Query - Best Result: MAP: 0.7392 MRR: 0.7619 NDCG@1: 0.6303 NDCG@3: 0.7324 NDCG@5: 0.7753 NDCG@10: 0.8114 
+
+Hyper-parameters:
+is_training	True
+per_gpu_batch_size	64
+per_gpu_test_batch_size	128
+learning_rate	4e-05
+task	tiangong
+epochs	3
+save_path	/cache/output/pointwise/models/bert_sessionsearch.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder
+score_file_path	/cache/output/BertContrastive.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt
+score_file_pre_path	/cache/output/bert_pointwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.pre.score.txt
+bert_model_path	/cache/data/BertChinese/
+pretrain_model_path	/cache/output/pretraining/models/BertContrastive.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder
+log_path	/cache/output/pointwise/logs/BertSessionSearch.tiangong.log
+batch_size	256
+test_batch_size	512
+Epoch 1/3
+Best Result: MAP: 0.8544 MRR: 0.9206 NDCG@1: 0.7279 NDCG@3: 0.7420 NDCG@5: 0.7471 NDCG@10: 0.8814 
+Previsou Query - Best Result: MAP: 0.6823 MRR: 0.7055 NDCG@1: 0.5538 NDCG@3: 0.6688 NDCG@5: 0.7220 NDCG@10: 0.7686 
+Best Result: MAP: 0.8615 MRR: 0.9265 NDCG@1: 0.7457 NDCG@3: 0.7500 NDCG@5: 0.7631 NDCG@10: 0.8883 
+Previsou Query - Best Result: MAP: 0.7053 MRR: 0.7287 NDCG@1: 0.5881 NDCG@3: 0.6946 NDCG@5: 0.7410 NDCG@10: 0.7858 
+Best Result: MAP: 0.8583 MRR: 0.9342 NDCG@1: 0.7627 NDCG@3: 0.7464 NDCG@5: 0.7620 NDCG@10: 0.8895 
+Previsou Query - Best Result: MAP: 0.7105 MRR: 0.7330 NDCG@1: 0.5907 NDCG@3: 0.7018 NDCG@5: 0.7488 NDCG@10: 0.7898 
+Previsou Query - Best Result: MAP: 0.7232 MRR: 0.7471 NDCG@1: 0.6130 NDCG@3: 0.7144 NDCG@5: 0.7591 NDCG@10: 0.7995 
+Best Result: MAP: 0.8638 MRR: 0.9315 NDCG@1: 0.7620 NDCG@3: 0.7556 NDCG@5: 0.7739 NDCG@10: 0.8917 
+Previsou Query - Best Result: MAP: 0.7176 MRR: 0.7391 NDCG@1: 0.5945 NDCG@3: 0.7122 NDCG@5: 0.7565 NDCG@10: 0.7950 
+Best Result: MAP: 0.8640 MRR: 0.9321 NDCG@1: 0.7638 NDCG@3: 0.7557 NDCG@5: 0.7740 NDCG@10: 0.8919 
+Previsou Query - Best Result: MAP: 0.7168 MRR: 0.7388 NDCG@1: 0.5941 NDCG@3: 0.7105 NDCG@5: 0.7561 NDCG@10: 0.7945 
+Epoch 2/3
+Previsou Query - Best Result: MAP: 0.7247 MRR: 0.7481 NDCG@1: 0.6081 NDCG@3: 0.7194 NDCG@5: 0.7622 NDCG@10: 0.8007 
+Previsou Query - Best Result: MAP: 0.7331 MRR: 0.7555 NDCG@1: 0.6220 NDCG@3: 0.7282 NDCG@5: 0.7684 NDCG@10: 0.8067 
+Previsou Query - Best Result: MAP: 0.7304 MRR: 0.7533 NDCG@1: 0.6190 NDCG@3: 0.7244 NDCG@5: 0.7670 NDCG@10: 0.8049 
+Previsou Query - Best Result: MAP: 0.7350 MRR: 0.7585 NDCG@1: 0.6247 NDCG@3: 0.7293 NDCG@5: 0.7711 NDCG@10: 0.8085 
+Previsou Query - Best Result: MAP: 0.7364 MRR: 0.7599 NDCG@1: 0.6247 NDCG@3: 0.7313 NDCG@5: 0.7734 NDCG@10: 0.8096 
+Previsou Query - Best Result: MAP: 0.7367 MRR: 0.7601 NDCG@1: 0.6250 NDCG@3: 0.7326 NDCG@5: 0.7734 NDCG@10: 0.8098 
+Epoch 3/3
+Previsou Query - Best Result: MAP: 0.7374 MRR: 0.7605 NDCG@1: 0.6254 NDCG@3: 0.7325 NDCG@5: 0.7765 NDCG@10: 0.8103 
+Previsou Query - Best Result: MAP: 0.7387 MRR: 0.7619 NDCG@1: 0.6284 NDCG@3: 0.7338 NDCG@5: 0.7758 NDCG@10: 0.8112 
+Previsou Query - Best Result: MAP: 0.7429 MRR: 0.7660 NDCG@1: 0.6349 NDCG@3: 0.7392 NDCG@5: 0.7797 NDCG@10: 0.8143 
+Previsou Query - Best Result: MAP: 0.7464 MRR: 0.7701 NDCG@1: 0.6424 NDCG@3: 0.7413 NDCG@5: 0.7827 NDCG@10: 0.8170 
+Previsou Query - Best Result: MAP: 0.7481 MRR: 0.7718 NDCG@1: 0.6424 NDCG@3: 0.7443 NDCG@5: 0.7844 NDCG@10: 0.8184 
+Previsou Query - Best Result: MAP: 0.7481 MRR: 0.7718 NDCG@1: 0.6424 NDCG@3: 0.7443 NDCG@5: 0.7844 NDCG@10: 0.8184 
