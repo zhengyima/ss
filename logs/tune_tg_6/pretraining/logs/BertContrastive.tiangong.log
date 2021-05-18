@@ -1,0 +1,18 @@
+
+Epoch 1/5
+Best Result: Loss: 2.1728 Acc: 0.3828
+Best Result: Loss: 2.1527 Acc: 0.3898
+Best Result: Loss: 2.1316 Acc: 0.3955
+Best Result: Loss: 2.1246 Acc: 0.3974
+Best Result: Loss: 2.1103 Acc: 0.3911
+Epoch 2/5
+Best Result: Loss: 2.0872 Acc: 0.3999
+Best Result: Loss: 2.0403 Acc: 0.4131
+Epoch 3/5
+Best Result: Loss: 2.0374 Acc: 0.4104
+Best Result: Loss: 2.0329 Acc: 0.4177
+Epoch 4/5
+Best Result: Loss: 2.0297 Acc: 0.4126
+Best Result: Loss: 1.9968 Acc: 0.4185
+Epoch 5/5
+Best Result: Loss: 1.9902 Acc: 0.4281
