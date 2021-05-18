@@ -212,7 +212,7 @@ def evaluate(model, X_test, bce_loss, best_result, X_test_preq=None, best_result
             
     result = metrics.evaluate_all_metrics()
 
-    if not is_test and result[0] + result[1] + result[2] + result[3] + result[4] + result[5] > best_result[0] + best_result[1] + best_result[2] + best_result[3] + best_result[4] + best_result[5]:
+    if not is_test and result[2] + result[3] + result[4] + result[5] > best_result[2] + best_result[3] + best_result[4] + best_result[5]:
         # tqdm.write("save model!!!")
         best_result = result
         print("Best Result: MAP: %.4f MRR: %.4f NDCG@1: %.4f NDCG@3: %.4f NDCG@5: %.4f NDCG@10: %.4f" % (best_result[0], best_result[1], best_result[2], best_result[3], best_result[4], best_result[5]))
