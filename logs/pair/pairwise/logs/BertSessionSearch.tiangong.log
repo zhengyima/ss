@@ -1,0 +1,16 @@
+
+Hyper-parameters:
+is_training	True
+per_gpu_batch_size	64
+per_gpu_test_batch_size	64
+learning_rate	5e-05
+task	tiangong
+epochs	3
+save_path	/cache/output/pairwise/models/bert_pairwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder
+score_file_path	/cache/output/bert_pairwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt
+score_file_pre_path	/cache/output/bert_pairwise.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder.pre.score.txt
+log_path	/cache/output/pairwise/logs/BertSessionSearch.tiangong.log
+bert_model_path	/cache/data/BertChinese/
+pretrain_model_path	/cache/mymodel_tg/pretraining/models/BertContrastive.tiangong.5.10.128.sent_deletion.term_deletion.qd_reorder
+batch_size	256
+test_batch_size	256
