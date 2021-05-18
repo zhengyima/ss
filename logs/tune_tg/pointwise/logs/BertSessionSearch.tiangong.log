@@ -9,38 +9,37 @@ epochs	3
 save_path	/cache/output/pointwise/models/bert_pointwise.tiangong.5.5.128.sent_deletion.term_deletion.qd_reorder
 score_file_path	/cache/output/bert_pointwise.tiangong.5.5.128.sent_deletion.term_deletion.qd_reorder.score.txt
 score_file_pre_path	/cache/output/bert_pointwise.tiangong.5.5.128.sent_deletion.term_deletion.qd_reorder.pre.score.txt
-bert_model_path	/cache/data/BertModel/
+bert_model_path	/cache/data/BertChinese/
 pretrain_model_path	/cache/output/pretraining/models/BertContrastive.tiangong.5.5.128.sent_deletion.term_deletion.qd_reorder
 log_path	/cache/output/pointwise/logs/BertSessionSearch.tiangong.log
 batch_size	256
 test_batch_size	512
 Epoch 1/3
-Best Result: MAP: 0.8669 MRR: 0.9297 NDCG@1: 0.7129 NDCG@3: 0.7186 NDCG@5: 0.7424 NDCG@10: 0.8770 
-Previsou Query - Best Result: MAP: 0.6269 MRR: 0.6472 NDCG@1: 0.4851 NDCG@3: 0.6042 NDCG@5: 0.6611 NDCG@10: 0.7252 
-Best Result: MAP: 0.8641 MRR: 0.9293 NDCG@1: 0.7329 NDCG@3: 0.7340 NDCG@5: 0.7501 NDCG@10: 0.8808 
-Previsou Query - Best Result: MAP: 0.6519 MRR: 0.6717 NDCG@1: 0.5187 NDCG@3: 0.6276 NDCG@5: 0.6876 NDCG@10: 0.7441 
-Best Result: MAP: 0.8649 MRR: 0.9333 NDCG@1: 0.7432 NDCG@3: 0.7361 NDCG@5: 0.7555 NDCG@10: 0.8842 
-Previsou Query - Best Result: MAP: 0.6637 MRR: 0.6857 NDCG@1: 0.5360 NDCG@3: 0.6422 NDCG@5: 0.6979 NDCG@10: 0.7535 
-Previsou Query - Best Result: MAP: 0.6714 MRR: 0.6933 NDCG@1: 0.5458 NDCG@3: 0.6522 NDCG@5: 0.7061 NDCG@10: 0.7594 
-Previsou Query - Best Result: MAP: 0.6790 MRR: 0.7020 NDCG@1: 0.5594 NDCG@3: 0.6616 NDCG@5: 0.7122 NDCG@10: 0.7652 
-Previsou Query - Best Result: MAP: 0.6800 MRR: 0.7027 NDCG@1: 0.5605 NDCG@3: 0.6621 NDCG@5: 0.7133 NDCG@10: 0.7659 
+Best Result: MAP: 0.8521 MRR: 0.9258 NDCG@1: 0.7472 NDCG@3: 0.7381 NDCG@5: 0.7502 NDCG@10: 0.8830 
+Previsou Query - Best Result: MAP: 0.6801 MRR: 0.7007 NDCG@1: 0.5439 NDCG@3: 0.6680 NDCG@5: 0.7218 NDCG@10: 0.7667 
+Best Result: MAP: 0.8608 MRR: 0.9229 NDCG@1: 0.7409 NDCG@3: 0.7450 NDCG@5: 0.7604 NDCG@10: 0.8866 
+Previsou Query - Best Result: MAP: 0.7046 MRR: 0.7271 NDCG@1: 0.5824 NDCG@3: 0.6952 NDCG@5: 0.7405 NDCG@10: 0.7852 
+Previsou Query - Best Result: MAP: 0.7076 MRR: 0.7298 NDCG@1: 0.5869 NDCG@3: 0.6979 NDCG@5: 0.7457 NDCG@10: 0.7874 
+Previsou Query - Best Result: MAP: 0.7163 MRR: 0.7405 NDCG@1: 0.6024 NDCG@3: 0.7051 NDCG@5: 0.7540 NDCG@10: 0.7944 
+Best Result: MAP: 0.8612 MRR: 0.9244 NDCG@1: 0.7581 NDCG@3: 0.7526 NDCG@5: 0.7738 NDCG@10: 0.8910 
+Previsou Query - Best Result: MAP: 0.7199 MRR: 0.7436 NDCG@1: 0.6058 NDCG@3: 0.7128 NDCG@5: 0.7562 NDCG@10: 0.7969 
+Best Result: MAP: 0.8626 MRR: 0.9265 NDCG@1: 0.7627 NDCG@3: 0.7538 NDCG@5: 0.7750 NDCG@10: 0.8921 
+Previsou Query - Best Result: MAP: 0.7207 MRR: 0.7441 NDCG@1: 0.6062 NDCG@3: 0.7140 NDCG@5: 0.7565 NDCG@10: 0.7975 
 Epoch 2/3
-Previsou Query - Best Result: MAP: 0.6827 MRR: 0.7054 NDCG@1: 0.5605 NDCG@3: 0.6664 NDCG@5: 0.7170 NDCG@10: 0.7682 
-Best Result: MAP: 0.8658 MRR: 0.9299 NDCG@1: 0.7436 NDCG@3: 0.7381 NDCG@5: 0.7569 NDCG@10: 0.8846 
-Previsou Query - Best Result: MAP: 0.6852 MRR: 0.7084 NDCG@1: 0.5643 NDCG@3: 0.6709 NDCG@5: 0.7179 NDCG@10: 0.7702 
-Previsou Query - Best Result: MAP: 0.6900 MRR: 0.7129 NDCG@1: 0.5654 NDCG@3: 0.6780 NDCG@5: 0.7253 NDCG@10: 0.7739 
-Previsou Query - Best Result: MAP: 0.6929 MRR: 0.7152 NDCG@1: 0.5722 NDCG@3: 0.6781 NDCG@5: 0.7275 NDCG@10: 0.7759 
-Previsou Query - Best Result: MAP: 0.6997 MRR: 0.7215 NDCG@1: 0.5771 NDCG@3: 0.6880 NDCG@5: 0.7339 NDCG@10: 0.7811 
-Previsou Query - Best Result: MAP: 0.6994 MRR: 0.7213 NDCG@1: 0.5771 NDCG@3: 0.6882 NDCG@5: 0.7337 NDCG@10: 0.7809 
+Previsou Query - Best Result: MAP: 0.7201 MRR: 0.7423 NDCG@1: 0.6043 NDCG@3: 0.7127 NDCG@5: 0.7580 NDCG@10: 0.7968 
+Previsou Query - Best Result: MAP: 0.7294 MRR: 0.7518 NDCG@1: 0.6198 NDCG@3: 0.7214 NDCG@5: 0.7652 NDCG@10: 0.8038 
+Previsou Query - Best Result: MAP: 0.7254 MRR: 0.7473 NDCG@1: 0.6081 NDCG@3: 0.7171 NDCG@5: 0.7642 NDCG@10: 0.8009 
+Best Result: MAP: 0.8623 MRR: 0.9382 NDCG@1: 0.7769 NDCG@3: 0.7576 NDCG@5: 0.7703 NDCG@10: 0.8932 
+Previsou Query - Best Result: MAP: 0.7330 MRR: 0.7544 NDCG@1: 0.6171 NDCG@3: 0.7274 NDCG@5: 0.7725 NDCG@10: 0.8067 
+Previsou Query - Best Result: MAP: 0.7374 MRR: 0.7601 NDCG@1: 0.6262 NDCG@3: 0.7299 NDCG@5: 0.7762 NDCG@10: 0.8101 
+Previsou Query - Best Result: MAP: 0.7368 MRR: 0.7592 NDCG@1: 0.6247 NDCG@3: 0.7295 NDCG@5: 0.7750 NDCG@10: 0.8096 
 Epoch 3/3
-Previsou Query - Best Result: MAP: 0.7039 MRR: 0.7267 NDCG@1: 0.5851 NDCG@3: 0.6939 NDCG@5: 0.7405 NDCG@10: 0.7845 
-Best Result: MAP: 0.8626 MRR: 0.9301 NDCG@1: 0.7497 NDCG@3: 0.7415 NDCG@5: 0.7594 NDCG@10: 0.8851 
-Previsou Query - Best Result: MAP: 0.7062 MRR: 0.7297 NDCG@1: 0.5907 NDCG@3: 0.6959 NDCG@5: 0.7418 NDCG@10: 0.7863 
-Best Result: MAP: 0.8626 MRR: 0.9296 NDCG@1: 0.7548 NDCG@3: 0.7440 NDCG@5: 0.7619 NDCG@10: 0.8870 
-Previsou Query - Best Result: MAP: 0.7072 MRR: 0.7308 NDCG@1: 0.5934 NDCG@3: 0.6933 NDCG@5: 0.7431 NDCG@10: 0.7870 
-Previsou Query - Best Result: MAP: 0.7070 MRR: 0.7297 NDCG@1: 0.5911 NDCG@3: 0.6954 NDCG@5: 0.7425 NDCG@10: 0.7867 
-Previsou Query - Best Result: MAP: 0.7111 MRR: 0.7347 NDCG@1: 0.5986 NDCG@3: 0.6982 NDCG@5: 0.7464 NDCG@10: 0.7899 
-Previsou Query - Best Result: MAP: 0.7111 MRR: 0.7347 NDCG@1: 0.5986 NDCG@3: 0.6982 NDCG@5: 0.7464 NDCG@10: 0.7899 
+Previsou Query - Best Result: MAP: 0.7409 MRR: 0.7636 NDCG@1: 0.6307 NDCG@3: 0.7353 NDCG@5: 0.7800 NDCG@10: 0.8128 
+Previsou Query - Best Result: MAP: 0.7403 MRR: 0.7618 NDCG@1: 0.6269 NDCG@3: 0.7342 NDCG@5: 0.7776 NDCG@10: 0.8121 
+Previsou Query - Best Result: MAP: 0.7450 MRR: 0.7664 NDCG@1: 0.6326 NDCG@3: 0.7414 NDCG@5: 0.7830 NDCG@10: 0.8157 
+Previsou Query - Best Result: MAP: 0.7465 MRR: 0.7681 NDCG@1: 0.6375 NDCG@3: 0.7412 NDCG@5: 0.7847 NDCG@10: 0.8168 
+Previsou Query - Best Result: MAP: 0.7481 MRR: 0.7696 NDCG@1: 0.6386 NDCG@3: 0.7445 NDCG@5: 0.7858 NDCG@10: 0.8180 
+Previsou Query - Best Result: MAP: 0.7481 MRR: 0.7696 NDCG@1: 0.6386 NDCG@3: 0.7445 NDCG@5: 0.7858 NDCG@10: 0.8180 
 
 Hyper-parameters:
 is_training	True
@@ -52,33 +51,32 @@ epochs	3
 save_path	/cache/output/pointwise/models/bert_sessionsearch.tiangong.5.30.128.sent_deletion.term_deletion.qd_reorder
 score_file_path	/cache/output/BertContrastive.tiangong.5.30.128.sent_deletion.term_deletion.qd_reorder.score.txt
 score_file_pre_path	/cache/output/bert_pointwise.tiangong.5.30.128.sent_deletion.term_deletion.qd_reorder.pre.score.txt
-bert_model_path	/cache/data/BertModel/
+bert_model_path	/cache/data/BertChinese/
 pretrain_model_path	/cache/output/pretraining/models/BertContrastive.tiangong.5.30.128.sent_deletion.term_deletion.qd_reorder
 log_path	/cache/output/pointwise/logs/BertSessionSearch.tiangong.log
 batch_size	256
 test_batch_size	512
 Epoch 1/3
-Best Result: MAP: 0.8642 MRR: 0.9300 NDCG@1: 0.7270 NDCG@3: 0.7246 NDCG@5: 0.7465 NDCG@10: 0.8786 
-Previsou Query - Best Result: MAP: 0.6296 MRR: 0.6513 NDCG@1: 0.4919 NDCG@3: 0.6034 NDCG@5: 0.6635 NDCG@10: 0.7277 
-Best Result: MAP: 0.8654 MRR: 0.9268 NDCG@1: 0.7264 NDCG@3: 0.7306 NDCG@5: 0.7513 NDCG@10: 0.8807 
-Previsou Query - Best Result: MAP: 0.6458 MRR: 0.6684 NDCG@1: 0.5115 NDCG@3: 0.6245 NDCG@5: 0.6789 NDCG@10: 0.7401 
-Best Result: MAP: 0.8642 MRR: 0.9290 NDCG@1: 0.7345 NDCG@3: 0.7439 NDCG@5: 0.7587 NDCG@10: 0.8852 
-Previsou Query - Best Result: MAP: 0.6616 MRR: 0.6840 NDCG@1: 0.5323 NDCG@3: 0.6436 NDCG@5: 0.6955 NDCG@10: 0.7522 
-Previsou Query - Best Result: MAP: 0.6686 MRR: 0.6916 NDCG@1: 0.5406 NDCG@3: 0.6515 NDCG@5: 0.7068 NDCG@10: 0.7577 
-Previsou Query - Best Result: MAP: 0.6750 MRR: 0.6990 NDCG@1: 0.5530 NDCG@3: 0.6581 NDCG@5: 0.7073 NDCG@10: 0.7625 
-Previsou Query - Best Result: MAP: 0.6747 MRR: 0.6987 NDCG@1: 0.5530 NDCG@3: 0.6570 NDCG@5: 0.7073 NDCG@10: 0.7622 
+Best Result: MAP: 0.8583 MRR: 0.9300 NDCG@1: 0.7466 NDCG@3: 0.7432 NDCG@5: 0.7553 NDCG@10: 0.8854 
+Previsou Query - Best Result: MAP: 0.6786 MRR: 0.7010 NDCG@1: 0.5492 NDCG@3: 0.6625 NDCG@5: 0.7183 NDCG@10: 0.7657 
+Previsou Query - Best Result: MAP: 0.7030 MRR: 0.7258 NDCG@1: 0.5862 NDCG@3: 0.6895 NDCG@5: 0.7380 NDCG@10: 0.7839 
+Previsou Query - Best Result: MAP: 0.7053 MRR: 0.7279 NDCG@1: 0.5836 NDCG@3: 0.6937 NDCG@5: 0.7446 NDCG@10: 0.7858 
+Previsou Query - Best Result: MAP: 0.7095 MRR: 0.7323 NDCG@1: 0.5941 NDCG@3: 0.6995 NDCG@5: 0.7447 NDCG@10: 0.7888 
+Best Result: MAP: 0.8586 MRR: 0.9359 NDCG@1: 0.7648 NDCG@3: 0.7503 NDCG@5: 0.7660 NDCG@10: 0.8903 
+Previsou Query - Best Result: MAP: 0.7163 MRR: 0.7394 NDCG@1: 0.5998 NDCG@3: 0.7071 NDCG@5: 0.7511 NDCG@10: 0.7942 
+Best Result: MAP: 0.8594 MRR: 0.9359 NDCG@1: 0.7649 NDCG@3: 0.7516 NDCG@5: 0.7661 NDCG@10: 0.8908 
+Previsou Query - Best Result: MAP: 0.7156 MRR: 0.7390 NDCG@1: 0.5983 NDCG@3: 0.7063 NDCG@5: 0.7512 NDCG@10: 0.7937 
 Epoch 2/3
-Previsou Query - Best Result: MAP: 0.6799 MRR: 0.7019 NDCG@1: 0.5549 NDCG@3: 0.6662 NDCG@5: 0.7144 NDCG@10: 0.7660 
-Previsou Query - Best Result: MAP: 0.6856 MRR: 0.7093 NDCG@1: 0.5662 NDCG@3: 0.6706 NDCG@5: 0.7181 NDCG@10: 0.7705 
-Previsou Query - Best Result: MAP: 0.6906 MRR: 0.7126 NDCG@1: 0.5636 NDCG@3: 0.6784 NDCG@5: 0.7295 NDCG@10: 0.7744 
-Previsou Query - Best Result: MAP: 0.6953 MRR: 0.7184 NDCG@1: 0.5741 NDCG@3: 0.6811 NDCG@5: 0.7310 NDCG@10: 0.7779 
-Previsou Query - Best Result: MAP: 0.6991 MRR: 0.7209 NDCG@1: 0.5749 NDCG@3: 0.6884 NDCG@5: 0.7349 NDCG@10: 0.7807 
-Previsou Query - Best Result: MAP: 0.6987 MRR: 0.7206 NDCG@1: 0.5749 NDCG@3: 0.6879 NDCG@5: 0.7340 NDCG@10: 0.7804 
+Previsou Query - Best Result: MAP: 0.7208 MRR: 0.7434 NDCG@1: 0.6043 NDCG@3: 0.7123 NDCG@5: 0.7582 NDCG@10: 0.7975 
+Previsou Query - Best Result: MAP: 0.7270 MRR: 0.7497 NDCG@1: 0.6149 NDCG@3: 0.7199 NDCG@5: 0.7623 NDCG@10: 0.8021 
+Previsou Query - Best Result: MAP: 0.7226 MRR: 0.7460 NDCG@1: 0.6084 NDCG@3: 0.7148 NDCG@5: 0.7581 NDCG@10: 0.7990 
+Previsou Query - Best Result: MAP: 0.7263 MRR: 0.7497 NDCG@1: 0.6130 NDCG@3: 0.7183 NDCG@5: 0.7640 NDCG@10: 0.8018 
+Previsou Query - Best Result: MAP: 0.7332 MRR: 0.7570 NDCG@1: 0.6243 NDCG@3: 0.7241 NDCG@5: 0.7702 NDCG@10: 0.8071 
+Previsou Query - Best Result: MAP: 0.7326 MRR: 0.7562 NDCG@1: 0.6232 NDCG@3: 0.7238 NDCG@5: 0.7700 NDCG@10: 0.8067 
 Epoch 3/3
-Previsou Query - Best Result: MAP: 0.7002 MRR: 0.7222 NDCG@1: 0.5775 NDCG@3: 0.6896 NDCG@5: 0.7367 NDCG@10: 0.7815 
-Best Result: MAP: 0.8622 MRR: 0.9291 NDCG@1: 0.7426 NDCG@3: 0.7437 NDCG@5: 0.7576 NDCG@10: 0.8852 
-Previsou Query - Best Result: MAP: 0.7007 MRR: 0.7239 NDCG@1: 0.5768 NDCG@3: 0.6922 NDCG@5: 0.7393 NDCG@10: 0.7823 
-Previsou Query - Best Result: MAP: 0.7061 MRR: 0.7296 NDCG@1: 0.5900 NDCG@3: 0.6940 NDCG@5: 0.7421 NDCG@10: 0.7861 
-Previsou Query - Best Result: MAP: 0.7050 MRR: 0.7275 NDCG@1: 0.5858 NDCG@3: 0.6930 NDCG@5: 0.7417 NDCG@10: 0.7852 
-Previsou Query - Best Result: MAP: 0.7041 MRR: 0.7268 NDCG@1: 0.5854 NDCG@3: 0.6930 NDCG@5: 0.7417 NDCG@10: 0.7846 
-Previsou Query - Best Result: MAP: 0.7041 MRR: 0.7268 NDCG@1: 0.5854 NDCG@3: 0.6930 NDCG@5: 0.7417 NDCG@10: 0.7846 
+Previsou Query - Best Result: MAP: 0.7340 MRR: 0.7571 NDCG@1: 0.6239 NDCG@3: 0.7279 NDCG@5: 0.7713 NDCG@10: 0.8076 
+Previsou Query - Best Result: MAP: 0.7383 MRR: 0.7612 NDCG@1: 0.6315 NDCG@3: 0.7310 NDCG@5: 0.7753 NDCG@10: 0.8107 
+Previsou Query - Best Result: MAP: 0.7398 MRR: 0.7624 NDCG@1: 0.6315 NDCG@3: 0.7332 NDCG@5: 0.7764 NDCG@10: 0.8118 
+Previsou Query - Best Result: MAP: 0.7388 MRR: 0.7611 NDCG@1: 0.6296 NDCG@3: 0.7308 NDCG@5: 0.7749 NDCG@10: 0.8110 
+Previsou Query - Best Result: MAP: 0.7413 MRR: 0.7636 NDCG@1: 0.6326 NDCG@3: 0.7346 NDCG@5: 0.7781 NDCG@10: 0.8129 
+Previsou Query - Best Result: MAP: 0.7413 MRR: 0.7636 NDCG@1: 0.6326 NDCG@3: 0.7346 NDCG@5: 0.7781 NDCG@10: 0.8129 
