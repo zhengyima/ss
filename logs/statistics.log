@@ -1,0 +1,22 @@
+Installed /home/work/anaconda3/lib/python3.6/site-packages/pytrec_eval-0.5-py3.6-linux-x86_64.egg
+Processing dependencies for pytrec-eval==0.5
+Finished processing dependencies for pytrec-eval==0.5
+pytrec ok
+0.552700927070873 0.4020225407742858 58738
+0.543403267053195 0.4001155151252617 13851
+0.4876967263751009 0.3456582633053221 3570
+INFO:root:No files to copy.
+write success
+[ModelArts Service Log]modelarts-pipe: total length: 144710
+[Modelarts Service Log]Training end with return code: 0
+[Modelarts Service Log]handle outputs of training job
+[ModelArts Service Log]modelarts-pipe: will create log file /tmp/log/session_search.log
+[ModelArts Service Log]modelarts-pipe: will write log file /tmp/log/session_search.log
+[ModelArts Service Log]modelarts-pipe: param for max log length: 1073741824
+[ModelArts Service Log]modelarts-pipe: param for whether exit on overflow: 0
+[Modelarts Service Log][modelarts_logger] modelarts-pipe found
+INFO:root:Using MoXing-v1.17.1-47ce498c
+INFO:root:Using OBS-Python-SDK-3.1.2
+[ModelArts Service Log][INFO][2021/05/20 13:18:02]: env MA_OUTPUTS is not found, skip the outputs handler
+[ModelArts Service Log]modelarts-pipe: total length: 183
+[Modelarts Service Log]Training completed.
