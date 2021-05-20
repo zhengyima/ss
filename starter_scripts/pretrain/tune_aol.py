@@ -5,8 +5,8 @@ import argparse
 import moxing as mox
 import sys
 
-s3_rootdir = "s3://obs-app-2020042019121301221/SEaaKM/m50017495/"
-# s3_rootdir = "s3://bucket-852/m50017495/"
+# s3_rootdir = "s3://obs-app-2020042019121301221/SEaaKM/m50017495/"
+s3_rootdir = "s3://bucket-852/m50017495/"
 
 mox.file.shift('os', 'mox')
 os.makedirs("/cache/ss")
@@ -23,6 +23,7 @@ s3_model_path = s3_rootdir + "/data/yutao/"
 s3_req_path = s3_rootdir + "/data/requirement/"
 s3_output_path = s3_rootdir + "/output/yutao/tune_aol/"
 
+# s3_output_score_path = s3_rootdir + "/output/yutao/tune_aol/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt"
 
 def install_package():
     os.makedirs('/cache/mypackages/')
@@ -36,6 +37,11 @@ def install_package():
 def extract_data():
     os.makedirs('/cache/data')
     mox.file.copy_parallel(s3_model_path, '/cache/data')
+
+    # for 演示
+    mox.file.copy_parallel(s3_output_path, '/cache/tune_aol')
+    spath = "/cache/tune_aol/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt"
+
 
     os.makedirs('/cache/output')
     os.makedirs('/cache/output/pretraining')
