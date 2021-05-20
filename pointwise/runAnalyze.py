@@ -2,6 +2,7 @@ import argparse
 import random
 import numpy as np
 import torch
+import torch.nn.functional as F
 from torch.utils.data import DataLoader
 from transformers import BertTokenizer, BertModel
 from analyze_dataset import AnalyzeDataset
@@ -76,9 +77,7 @@ with torch.no_grad():
         bert_rep =  bert_model(**bert_inputs)[1]
         bert_inputs2 = {'input_ids': input_ids2, 'attention_mask': attention_mask2, 'token_type_ids': token_type_ids2}
         bert_rep2 =  bert_model(**bert_inputs2)[1]
-        bert_norm1 = bert_rep.norm(dim=-1, keepdim=True)  # [batch]
-        bert_norm2 = bert_rep2.norm(dim=-1, keepdim=True)  # [batch]
-        cossim = torch.einsum("bd,bd->b", bert_rep, bert_rep2) / ((bert_norm1 * bert_norm2) + 1e-6)
+        cossim = F.cosine_similarity(bert_rep, bert_rep2)
         cossim = cossim.data.cpu().numpy().reshape(-1)
         for sim in cossim:
             if sim == 1.0:
