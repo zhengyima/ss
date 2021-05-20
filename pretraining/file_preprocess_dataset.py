@@ -6,7 +6,7 @@ import random
 import re
     
 class ContrasDataset(Dataset):
-    def __init__(self, filename, max_seq_length, tokenizer, aug_strategy=["sent_deletion", "term_deletion", "qd_reorder"], ratio=0.5):
+    def __init__(self, filename, max_seq_length, tokenizer, aug_strategy=["sent_deletion", "term_deletion", "qd_reorder"], ratio=0.5, training_num=1.0):
         super(ContrasDataset, self).__init__()
         self._filename = filename
         self._max_seq_length = max_seq_length
@@ -14,8 +14,10 @@ class ContrasDataset(Dataset):
         self._aug_strategy = aug_strategy
         self._ratio = ratio
         self._rnd = random.Random(0)
+        assert training_num <= 1.0
+        self._training_nuim = training_num
         with open(filename, "r") as f:
-            self._total_data = len(f.readlines())
+            self._total_data = int(len(f.readlines()) * training_num)
     
     def check_length(self, pairlist):
         assert len(pairlist) % 2 == 0

@@ -38,6 +38,10 @@ parser.add_argument("--ratio",
                     default=0.5,
                     type=float,
                     help="The mask ratio for CL.")
+parser.add_argument("--training_num",
+                    default=1.0,
+                    type=float,
+                    help="The ratio of training samples.")
 parser.add_argument("--task",
                     default="aol",
                     type=str,
@@ -140,7 +144,7 @@ def train_step(model, train_data, loss_func):
     return contras_loss, acc
 
 def fit(model, X_train, X_test):
-    train_dataset = ContrasDataset(X_train, 128, tokenizer, aug_strategy=aug_strategy, ratio=args.ratio)
+    train_dataset = ContrasDataset(X_train, 128, tokenizer, aug_strategy=aug_strategy, ratio=args.ratio, training_num=args.training_num)
     train_dataloader = DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True, num_workers=8)
     optimizer = AdamW(model.parameters(), lr=args.learning_rate)
     t_total = int(len(train_dataset) * args.epochs // args.batch_size)
@@ -204,7 +208,7 @@ def evaluate(model, X_test, best_result, is_test=False):
 def predict(model, X_test):
     model.eval()
     test_loss = []
-    test_dataset = ContrasDataset(X_test, 128, tokenizer, aug_strategy=aug_strategy, ratio=args.ratio)
+    test_dataset = ContrasDataset(X_test, 128, tokenizer, aug_strategy=aug_strategy, ratio=args.ratio, training_num=args.training_num)
     test_dataloader = DataLoader(test_dataset, batch_size=args.test_batch_size, shuffle=False, num_workers=8)
     y_test_loss = []
     y_test_acc = []
