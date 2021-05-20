@@ -42,6 +42,8 @@ def extract_data():
     mox.file.copy_parallel(s3_output_path, '/cache/tune_aol')
     spath = "/cache/tune_aol/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt"
 
+    # model的路径：/cache/tune_aol/pre_training/models/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder
+
 
     os.makedirs('/cache/output')
     os.makedirs('/cache/output/pretraining')
