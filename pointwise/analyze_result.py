@@ -67,13 +67,13 @@ def evaluate_all_metrics():
         lens = all_lens[idx]
         if lens <= 2:
             count_result["short"].append(map[0])
-            count_result_2["short"].append(ndcg_1[0])
+            count_result_2["short"].append(ndcg_3[0])
         elif lens < 5:
             count_result["medium"].append(map[0])
-            count_result_2["medium"].append(ndcg_1[0])
+            count_result_2["medium"].append(ndcg_3[0])
         else:
             count_result["long"].append(map[0])
-            count_result_2["long"].append(ndcg_1[0])
+            count_result_2["long"].append(ndcg_3[0])
     print(np.average(count_result["short"]), np.average(count_result_2["short"]), len(count_result["short"]))
     print(np.average(count_result["medium"]), np.average(count_result_2["medium"]), len(count_result["medium"]))
     print(np.average(count_result["long"]), np.average(count_result_2["long"]), len(count_result["long"]))
@@ -148,5 +148,5 @@ def statistic_per_idx_result():
         print(k, np.average(count_result["long"][k]), len(count_result["long"][k]))
 
 
-# evaluate_all_metrics()
-statistic_per_idx_result()
+evaluate_all_metrics()
+# statistic_per_idx_result()
