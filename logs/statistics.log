@@ -54,3 +54,18 @@ write success
 [Modelarts Service Log]handle outputs of training job
 [ModelArts Service Log]modelarts-pipe: will create log file /tmp/log/session_search.log
 [ModelArts Service Log]modelarts-p
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+Processing dependencies for pytrec-eval==0.5
+Finished processing dependencies for pytrec-eval==0.5
+pytrec ok
+0.552700927070873 0.5630527763705234 0.4020225407742858 0.5502390266892377 0.5893156834825888 0.6206729692436144 58738
+0.543403267053195 0.5527391837087887 0.4001155151252617 0.5390684662493154 0.5745441604959898 0.6064534381965601 13851
+0.4876967263751009 0.4933626561470501 0.3456582633053221 0.48418425092634415 0.5117910870914955 0.5446119084128717 3570
+INFO:root:No files to copy.
+write success
+[ModelArts Service Log]modelarts-pipe: total length: 144939
+[Modelarts Service Log]Training end with return code: 0
+[Modelarts Service Log]handle outputs
