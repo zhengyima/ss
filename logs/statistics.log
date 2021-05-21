@@ -20,3 +20,37 @@ INFO:root:Using OBS-Python-SDK-3.1.2
 [ModelArts Service Log][INFO][2021/05/20 13:18:02]: env MA_OUTPUTS is not found, skip the outputs handler
 [ModelArts Service Log]modelarts-pipe: total length: 183
 [Modelarts Service Log]Training completed.
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+eating /home/work/anaconda3/lib/python3.6/site-packages/pytrec_eval-0.5-py3.6-linux-x86_64.egg
+Extracting pytrec_eval-0.5-py3.6-linux-x86_64.egg to /home/work/anaconda3/lib/python3.6/site-packages
+Adding pytrec-eval 0.5 to easy-install.pth file
+
+Installed /home/work/anaconda3/lib/python3.6/site-packages/pytrec_eval-0.5-py3.6-linux-x86_64.egg
+Processing dependencies for pytrec-eval==0.5
+Finished processing dependencies for pytrec-eval==0.5
+pytrec ok
+1 0.5493230234124796 19540
+2 0.5733078480810273 19540
+1 0.5361925500786963 8000
+2 0.547700997621078 8000
+3 0.555333423179394 8000
+4 0.5594439402127176 2193
+1 0.506302287204167 1829
+2 0.5091112960148689 1829
+3 0.5046021937668587 1829
+4 0.510789116037494 1829
+5 0.4955366937794387 1829
+6 0.49353463970721184 921
+7 0.4726923812307 457
+8 0.46276904660166657 219
+9 0.44158308630690757 104
+10 0.42259541655153365 40
+INFO:root:No files to copy.
+write success
+[ModelArts Service Log]modelarts-pipe: total length: 144991
+[Modelarts Service Log]Training end with return code: 0
+[Modelarts Service Log]handle outputs of training job
+[ModelArts Service Log]modelarts-pipe: will create log file /tmp/log/session_search.log
+[ModelArts Service Log]modelarts-p
