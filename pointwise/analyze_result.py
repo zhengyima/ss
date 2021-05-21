@@ -43,6 +43,10 @@ def evaluate_all_metrics():
     assert len(all_lens) == len(sessions)
     count_result = {"short": [], "medium": [], "long": []}
     count_result_2 = {"short": [], "medium": [], "long": []}
+    count_result_3 = {"short": [], "medium": [], "long": []}
+    count_result_4 = {"short": [], "medium": [], "long": []}
+    count_result_5 = {"short": [], "medium": [], "long": []}
+    count_result_6 = {"short": [], "medium": [], "long": []}
     for idx, sess in enumerate(sessions):
         qrels = {}
         run = {}
@@ -67,16 +71,28 @@ def evaluate_all_metrics():
         lens = all_lens[idx]
         if lens <= 2:
             count_result["short"].append(map[0])
-            count_result_2["short"].append(ndcg_3[0])
+            count_result_2["short"].append(mrr[0])
+            count_result_3["short"].append(ndcg_1[0])
+            count_result_4["short"].append(ndcg_3[0])
+            count_result_5["short"].append(ndcg_5[0])
+            count_result_6["short"].append(ndcg_10[0])
         elif lens < 5:
             count_result["medium"].append(map[0])
-            count_result_2["medium"].append(ndcg_3[0])
+            count_result_2["medium"].append(mrr[0])
+            count_result_3["medium"].append(ndcg_1[0])
+            count_result_4["medium"].append(ndcg_3[0])
+            count_result_5["medium"].append(ndcg_5[0])
+            count_result_6["medium"].append(ndcg_10[0])
         else:
             count_result["long"].append(map[0])
-            count_result_2["long"].append(ndcg_3[0])
-    print(np.average(count_result["short"]), np.average(count_result_2["short"]), len(count_result["short"]))
-    print(np.average(count_result["medium"]), np.average(count_result_2["medium"]), len(count_result["medium"]))
-    print(np.average(count_result["long"]), np.average(count_result_2["long"]), len(count_result["long"]))
+            count_result_2["long"].append(mrr[0])
+            count_result_3["long"].append(ndcg_1[0])
+            count_result_4["long"].append(ndcg_3[0])
+            count_result_5["long"].append(ndcg_5[0])
+            count_result_6["long"].append(ndcg_10[0])
+    print(np.average(count_result["short"]), np.average(count_result_2["short"]), np.average(count_result_3["short"]), np.average(count_result_4["short"]), np.average(count_result_5["short"]), np.average(count_result_6["short"]), len(count_result["short"]))
+    print(np.average(count_result["medium"]), np.average(count_result_2["medium"]), np.average(count_result_3["medium"]), np.average(count_result_4["medium"]), np.average(count_result_5["medium"]), np.average(count_result_6["medium"]), len(count_result["medium"]))
+    print(np.average(count_result["long"]), np.average(count_result_2["long"]), np.average(count_result_3["long"]), np.average(count_result_4["long"]), np.average(count_result_5["long"]), np.average(count_result_6["long"]), len(count_result["long"]))
 
 def statistic_per_idx_result():
     all_pos = []
