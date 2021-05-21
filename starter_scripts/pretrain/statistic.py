@@ -76,7 +76,7 @@ def main():
 
     install_package()
     
-    os.system(f"cd /cache/ss/Pointwise && python analyze_result.py --score_file_path /cache/mymodel/BertSessionSearch.aol.score_file.txt --test_file_path ../data/aol/test_line.txt")
+    os.system(f"cd /cache/ss/Pointwise && python analyze_result.py --score_file_path /cache/mymodel/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder.score.txt --test_file_path ../data/aol/test_line.txt")
 
     mox.file.copy_parallel('/cache/output', s3_output_path)
     print("write success")
