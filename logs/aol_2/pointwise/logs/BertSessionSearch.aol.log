@@ -1,0 +1,27 @@
+
+Hyper-parameters:
+is_training	True
+per_gpu_batch_size	64
+per_gpu_test_batch_size	128
+learning_rate	5e-05
+task	aol
+epochs	3
+save_path	/cache/output/pointwise/models/bert_sessionsearch.aol.2.10.128.sent_deletion.term_deletion.qd_reorder
+score_file_path	/cache/output/BertContrastive.aol.2.10.128.sent_deletion.term_deletion.qd_reorder.score.txt
+score_file_pre_path	score_file.preq.txt
+bert_model_path	/cache/data/BertModel/
+pretrain_model_path	/cache/output/pretraining/models/BertContrastive.aol.2.10.128.sent_deletion.term_deletion.qd_reorder
+log_path	/cache/output/pointwise/logs/BertSessionSearch.aol.log
+batch_size	256
+test_batch_size	512
+Epoch 1/3
+Best Result: MAP: 0.5032 MRR: 0.5124 NDCG@1: 0.3530 NDCG@3: 0.4980 NDCG@5: 0.5346 NDCG@10: 0.5683 
+Best Result: MAP: 0.5204 MRR: 0.5302 NDCG@1: 0.3734 NDCG@3: 0.5176 NDCG@5: 0.5528 NDCG@10: 0.5845 
+Best Result: MAP: 0.5299 MRR: 0.5391 NDCG@1: 0.3828 NDCG@3: 0.5274 NDCG@5: 0.5633 NDCG@10: 0.5938 
+Best Result: MAP: 0.5341 MRR: 0.5424 NDCG@1: 0.3875 NDCG@3: 0.5300 NDCG@5: 0.5686 NDCG@10: 0.5981 
+Epoch 2/3
+Best Result: MAP: 0.5340 MRR: 0.5435 NDCG@1: 0.3883 NDCG@3: 0.5304 NDCG@5: 0.5679 NDCG@10: 0.5991 
+Best Result: MAP: 0.5351 MRR: 0.5446 NDCG@1: 0.3873 NDCG@3: 0.5334 NDCG@5: 0.5701 NDCG@10: 0.6005 
+Best Result: MAP: 0.5445 MRR: 0.5539 NDCG@1: 0.4003 NDCG@3: 0.5430 NDCG@5: 0.5787 NDCG@10: 0.6087 
+Epoch 3/3
+Best Result: MAP: 0.5472 MRR: 0.5573 NDCG@1: 0.3987 NDCG@3: 0.5450 NDCG@5: 0.5818 NDCG@10: 0.6132 
