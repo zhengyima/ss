@@ -76,7 +76,7 @@ def main():
 
     install_package()
     
-    os.system(f"cd /cache/ss/Pointwise && python runContrasAna.py --cl_model_path /cache/mymodel/pre_training/models/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder --bert_model_path /cache/data/BertModel/ --test_file_path ../data/aol/test.pos.all.txt")
+    os.system(f"cd /cache/ss/Pointwise && python runContrasAna.py --cl_model_path /cache/mymodel/pretraining/models/BertContrastive.aol.5.10.128.sent_deletion.term_deletion.qd_reorder --bert_model_path /cache/data/BertModel/ --test_file_path ../data/aol/test.pos.all.txt")
 
     mox.file.copy_parallel('/cache/output', s3_output_path)
     print("write success")
