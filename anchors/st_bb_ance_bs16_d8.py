@@ -34,7 +34,7 @@ s3_r_train_path = s3_rootdir + "data/anchor_data/finetune/processed_msrerank_1s/
 s3_r_dev_path = s3_rootdir + "data/anchor_data/finetune/processed_msmarco_rerank_dev/"
 
 s3_msmarco_path = s3_rootdir + "data/anchor_data/msmarco/"
-s3_output_path = s3_rootdir+ "/output/anchor_output/st_ict_tb16_n1_all_test"
+s3_output_path = s3_rootdir+ "/output/anchor_output/st_bb_ance_bs16_d8"
 
 s3_dev_trecdl_path = s3_rootdir + "/data/anchor_data/finetune/processed_trecdl_fullrank_eval/"
 s3_dev_trecdl_r_path = s3_rootdir + "/data/anchor_data/finetune/processed_trecdl_rerank_eval/"
