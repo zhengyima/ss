@@ -1,0 +1,13 @@
+Namespace(batch_size=48, bert_model='/cache/code/models/longformer', dataset_cache_dir='/cache/code/negs_tutorial_cache', dataset_script_dir='/cache/code/data_scripts', dev_file='/cache/code/data/dev_2048/all.json', dev_id_file='/cache/code/data/dev_2048/ids.tsv', epochs=1, id='default', is_training=True, learning_rate=1e-05, log_path='/cache/output/log_longf_bs6_lr1e-05.txt', msmarco_dev_qrel_path='/cache/code/data/msmarco/msmarco-docdev-qrels.tsv', msmarco_score_file_path='/cache/output/score_bert.txt', per_gpu_batch_size=6, per_gpu_test_batch_size=40, save_path='/cache/output/pytorch_model.bin', task='msmarco', test_batch_size=320, train_file='/cache/code/data/train_2048')
+Downloading and preparing dataset json/default-a8c100ffa23227c6 (download: Unknown size, generated: Unknown size, post-processed: Unknown size, total: Unknown size) to /cache/code/negs_tutorial_cache/json/default-a8c100ffa23227c6/0.0.0/70d89ed4db1394f028c651589fcab6d6b28dddcabbe39d3b21b4d41f9a708514...
+Dataset json downloaded and prepared to /cache/code/negs_tutorial_cache/json/default-a8c100ffa23227c6/0.0.0/70d89ed4db1394f028c651589fcab6d6b28dddcabbe39d3b21b4d41f9a708514. Subsequent calls will reuse this data.
+
+Epoch  1 / 1
+Average loss:0.512649 
+Downloading and preparing dataset json/default-e0ee097b1d5ec8b8 (download: Unknown size, generated: Unknown size, post-processed: Unknown size, total: Unknown size) to /cache/code/negs_tutorial_cache/json/default-e0ee097b1d5ec8b8/0.0.0/70d89ed4db1394f028c651589fcab6d6b28dddcabbe39d3b21b4d41f9a708514...
+Dataset json downloaded and prepared to /cache/code/negs_tutorial_cache/json/default-e0ee097b1d5ec8b8/0.0.0/70d89ed4db1394f028c651589fcab6d6b28dddcabbe39d3b21b4d41f9a708514. Subsequent calls will reuse this data.
+qrels_path /cache/code/data/msmarco/msmarco-docdev-qrels.tsv
+score_path /cache/output/score_bert.txt
+[best result] [0.3366946, 0.324248, 0.45514968, 0.42136076, 0.39358038, 0.33191663, 0.036289237]
+[best result][msmarco][default] mrr@100:0.336694598197937, mrr@10:0.32424798607826233, ndcg@100:0.45514968037605286, ndcg@20:0.4213607609272003, ndcg@10:0.3935803771018982, map@20:0.3319166302680969, p@20:0.036289237439632416
+[normal result] [0.3366946, 0.324248, 0.45514968, 0.42136076, 0.39358038, 0.33191663, 0.036289237]

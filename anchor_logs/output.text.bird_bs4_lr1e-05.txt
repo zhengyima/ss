@@ -1,0 +1,13 @@
+Namespace(batch_size=32, bert_model='/cache/mazhengyi/models/bigbird', dataset_cache_dir='/cache/mazhengyi/negs_tutorial_cache', dataset_script_dir='/cache/mazhengyi/data_scripts', dev_file='/cache/mazhengyi/data/dev_2048/all.json', dev_id_file='/cache/mazhengyi/data/dev_2048/ids.tsv', epochs=1, id='default', is_training=True, learning_rate=1e-05, log_path='/cache/output/log_bird_bs4_lr1e-05.txt', msmarco_dev_qrel_path='/cache/mazhengyi/data/msmarco/msmarco-docdev-qrels.tsv', msmarco_score_file_path='/cache/output/score_bert.txt', per_gpu_batch_size=4, per_gpu_test_batch_size=40, save_path='/cache/output/pytorch_model.bin', task='msmarco', test_batch_size=320, train_file='/cache/mazhengyi/data/train_2048')
+Downloading and preparing dataset json/default-3b97a2ea2e2c8386 (download: Unknown size, generated: Unknown size, post-processed: Unknown size, total: Unknown size) to /cache/mazhengyi/negs_tutorial_cache/json/default-3b97a2ea2e2c8386/0.0.0/70d89ed4db1394f028c651589fcab6d6b28dddcabbe39d3b21b4d41f9a708514...
+Dataset json downloaded and prepared to /cache/mazhengyi/negs_tutorial_cache/json/default-3b97a2ea2e2c8386/0.0.0/70d89ed4db1394f028c651589fcab6d6b28dddcabbe39d3b21b4d41f9a708514. Subsequent calls will reuse this data.
+
+Epoch  1 / 1
+Average loss:0.702834 
+Downloading and preparing dataset json/default-87c80ff3b85224a4 (download: Unknown size, generated: Unknown size, post-processed: Unknown size, total: Unknown size) to /cache/mazhengyi/negs_tutorial_cache/json/default-87c80ff3b85224a4/0.0.0/70d89ed4db1394f028c651589fcab6d6b28dddcabbe39d3b21b4d41f9a708514...
+Dataset json downloaded and prepared to /cache/mazhengyi/negs_tutorial_cache/json/default-87c80ff3b85224a4/0.0.0/70d89ed4db1394f028c651589fcab6d6b28dddcabbe39d3b21b4d41f9a708514. Subsequent calls will reuse this data.
+qrels_path /cache/mazhengyi/data/msmarco/msmarco-docdev-qrels.tsv
+score_path /cache/output/score_bert.txt
+[best result] [0.060968008, 0.03954316, 0.20466949, 0.085654035, 0.05882748, 0.046733137, 0.011554015]
+[best result][msmarco][default] mrr@100:0.060968007892370224, mrr@10:0.03954315930604935, ndcg@100:0.20466949045658112, ndcg@20:0.08565403521060944, ndcg@10:0.0588274784386158, map@20:0.04673313722014427, p@20:0.01155401486903429
+[normal result] [0.060968008, 0.03954316, 0.20466949, 0.085654035, 0.05882748, 0.046733137, 0.011554015]
